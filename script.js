@@ -23,11 +23,15 @@ const header = document.getElementById('siteHeader');
 const progressBar = document.getElementById('progressBar');
 const heroBg = document.getElementById('heroBg');
 const backToTop = document.getElementById('backToTop');
+const leistungenSection = document.getElementById('leistungen');
 
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
 
-  header.classList.toggle('scrolled', y > 80);
+  const darkThreshold = leistungenSection
+    ? leistungenSection.offsetTop - header.offsetHeight
+    : 80;
+  header.classList.toggle('scrolled', y > darkThreshold);
 
   if (backToTop) {
     backToTop.classList.toggle('visible', y > 400);
