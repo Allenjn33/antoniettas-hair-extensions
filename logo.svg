@@ -1,12 +1,21 @@
 <svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-  <path d="M 130 115
-           C 100 135, 100 165, 128 180
-           C 156 195, 180 178, 172 155
-           C 166 138, 148 132, 140 148
-           C 132 164, 150 178, 172 182
-           C 210 190, 238 175, 258 195
-           C 278 215, 268 245, 240 250"
-        fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="172" cy="100" r="11" fill="none" stroke="#b8975a" stroke-width="4"/>
+  <path d="M 172 111
+           C 172 135, 155 145, 158 168
+           C 161 190, 180 195, 178 218"
+        fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/>
+
+  <circle cx="205" cy="92" r="11" fill="none" stroke="#b8975a" stroke-width="4"/>
+  <path d="M 205 103
+           C 205 128, 222 140, 218 165
+           C 214 190, 195 198, 200 222"
+        fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/>
+
+  <circle cx="238" cy="100" r="11" fill="none" stroke="#b8975a" stroke-width="4"/>
+  <path d="M 238 111
+           C 238 133, 253 142, 250 163
+           C 247 184, 230 192, 233 213"
+        fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/>
 
   <text x="200" y="298" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="34" fill="#0a0a0a">Antonietta&#8217;s</text>
 
