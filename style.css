@@ -258,48 +258,6 @@ h1, h2, h3 {
   to { transform: translateX(-50%); }
 }
 
-/* USP-Leiste — bleibt Teil des dunklen Hero-Blocks für einen ruhigen Übergang */
-.usp-bar {
-  background: var(--black);
-  position: relative;
-  z-index: 1;
-}
-
-.usp-inner {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px 40px;
-  padding: 22px 24px;
-}
-
-.usp-inner span {
-  position: relative;
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--white);
-  opacity: 0.85;
-}
-
-.usp-inner span:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  right: -20px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--gold);
-}
-
-@media (max-width: 640px) {
-  .usp-inner span:not(:last-child)::after {
-    display: none;
-  }
-}
-
 /* Sections */
 .section {
   padding: 90px 0;
@@ -307,6 +265,8 @@ h1, h2, h3 {
 
 .section.alt {
   background: var(--grey-light);
+  border-top: 1px solid rgba(184,151,90,0.35);
+  border-bottom: 1px solid rgba(184,151,90,0.35);
 }
 
 .section h2 {
@@ -839,6 +799,7 @@ h1, h2, h3 {
   text-align: center;
   padding: 48px 0 28px;
   font-size: 13px;
+  border-top: 2px solid var(--gold);
 }
 
 .footer-logo {
