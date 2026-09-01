@@ -60,15 +60,17 @@ h1, h2, h3 {
 
 /* Header / Logo */
 .site-header {
-  background: var(--black);
+  background: var(--white);
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  transition: box-shadow 0.3s ease;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.3s ease;
 }
 
 .site-header.scrolled {
+  background: var(--black);
+  border-bottom-color: rgba(255,255,255,0.08);
   box-shadow: 0 8px 24px rgba(0,0,0,0.25);
 }
 
@@ -85,14 +87,18 @@ h1, h2, h3 {
 }
 
 .logo {
-  color: var(--white);
+  color: var(--black);
   text-decoration: none;
   font-family: 'Georgia', serif;
   font-size: 18px;
   letter-spacing: 2.5px;
   font-weight: 600;
   white-space: nowrap;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s, color 0.4s ease;
+}
+
+.site-header.scrolled .logo {
+  color: var(--white);
 }
 
 .logo:hover { opacity: 0.85; }
@@ -102,14 +108,18 @@ h1, h2, h3 {
 }
 
 .nav a {
-  color: var(--white);
+  color: var(--black);
   text-decoration: none;
   margin-left: 32px;
   font-size: 14px;
   letter-spacing: 1px;
   text-transform: uppercase;
   opacity: 0.85;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s, color 0.4s ease;
+}
+
+.site-header.scrolled .nav a {
+  color: var(--white);
 }
 
 .nav a:hover { opacity: 1; }
@@ -119,8 +129,8 @@ h1, h2, h3 {
   position: relative;
   background: var(--black);
   color: var(--white);
-  text-align: left;
-  padding: 150px 24px 60px;
+  text-align: center;
+  padding: 160px 24px 60px;
   overflow: hidden;
 }
 
@@ -166,12 +176,13 @@ h1, h2, h3 {
 }
 
 .hero-text {
-  max-width: 620px;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .hero-inner h1 {
-  font-size: 46px;
-  margin: 0 0 20px;
+  font-size: 48px;
+  margin: 0 auto 20px;
   line-height: 1.25;
 }
 
@@ -183,22 +194,8 @@ h1, h2, h3 {
 .hero-sub {
   color: var(--grey);
   font-size: 17px;
-  margin-bottom: 36px;
+  margin: 0 auto 36px;
   max-width: 460px;
-}
-
-@media (max-width: 900px) {
-  .hero {
-    text-align: center;
-  }
-  .hero-text {
-    max-width: none;
-    margin: 0 auto;
-  }
-  .hero-sub {
-    margin-left: auto;
-    margin-right: auto;
-  }
 }
 
 .btn {
@@ -920,4 +917,37 @@ h1, h2, h3 {
 @media (max-width: 640px) {
   .nav a { margin-left: 16px; font-size: 12px; }
   .hero-inner h1 { font-size: 32px; }
+}
+
+/* Back-to-top */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--black);
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  z-index: 90;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--gold);
+  border-color: var(--gold);
 }

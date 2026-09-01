@@ -22,11 +22,16 @@ revealEls.forEach(el => revealObserver.observe(el));
 const header = document.getElementById('siteHeader');
 const progressBar = document.getElementById('progressBar');
 const heroBg = document.getElementById('heroBg');
+const backToTop = document.getElementById('backToTop');
 
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
 
-  header.classList.toggle('scrolled', y > 40);
+  header.classList.toggle('scrolled', y > 80);
+
+  if (backToTop) {
+    backToTop.classList.toggle('visible', y > 400);
+  }
 
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
   const progress = docHeight > 0 ? (y / docHeight) * 100 : 0;
@@ -36,6 +41,12 @@ window.addEventListener('scroll', () => {
     heroBg.style.transform = `translateY(${y * 0.3}px)`;
   }
 }, { passive: true });
+
+if (backToTop) {
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
 
 // Sanft wandernder Scheinwerfer-Glow, verankert oben links, driftet leicht Richtung Mitte
 const heroGlow = document.querySelector('.hero-glow');
