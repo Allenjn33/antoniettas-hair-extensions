@@ -1,25 +1,7 @@
 <svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="172" cy="100" r="11" fill="none" stroke="#b8975a" stroke-width="4"/>
-  <path d="M 172 111
-           C 172 135, 155 145, 158 168
-           C 161 190, 180 195, 178 218"
-        fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/>
+  <text x="200" y="205" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="48" fill="#0a0a0a">Antonietta&#8217;s</text>
 
-  <circle cx="205" cy="92" r="11" fill="none" stroke="#b8975a" stroke-width="4"/>
-  <path d="M 205 103
-           C 205 128, 222 140, 218 165
-           C 214 190, 195 198, 200 222"
-        fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/>
-
-  <circle cx="238" cy="100" r="11" fill="none" stroke="#b8975a" stroke-width="4"/>
-  <path d="M 238 111
-           C 238 133, 253 142, 250 163
-           C 247 184, 230 192, 233 213"
-        fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/>
-
-  <text x="200" y="298" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="34" fill="#0a0a0a">Antonietta&#8217;s</text>
-
-  <line x1="105" y1="318" x2="140" y2="318" stroke="#b8975a" stroke-width="1.5"/>
-  <text x="200" y="323" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="14" letter-spacing="2" fill="#b8975a">Extensions</text>
-  <line x1="260" y1="318" x2="295" y2="318" stroke="#b8975a" stroke-width="1.5"/>
+  <line x1="85" y1="240" x2="128" y2="240" stroke="#b8975a" stroke-width="1.5"/>
+  <text x="200" y="246" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" letter-spacing="3" fill="#b8975a">EXTENSIONS</text>
+  <line x1="272" y1="240" x2="315" y2="240" stroke="#b8975a" stroke-width="1.5"/>
 </svg>
