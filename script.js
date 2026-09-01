@@ -37,21 +37,19 @@ window.addEventListener('scroll', () => {
   }
 }, { passive: true });
 
-// Sanft wandernder Scheinwerfer-Glow, verankert oben links im Hero
+// Sanft wandernder Scheinwerfer-Glow, verankert oben links, driftet leicht Richtung Mitte
 const heroGlow = document.querySelector('.hero-glow');
 if (heroGlow) {
-  const baseLeft = 22;
-  const baseTop = 18;
+  const baseLeft = 30;
+  const baseTop = 20;
   const wanderGlow = () => {
-    const left = baseLeft + (Math.random() * 14 - 7);
-    const top = baseTop + (Math.random() * 12 - 6);
-    const scale = 0.9 + Math.random() * 0.25;
-    const duration = 6 + Math.random() * 5;
+    const left = baseLeft + (Math.random() * 20 - 8);
+    const top = baseTop + (Math.random() * 16 - 6);
+    const duration = 7 + Math.random() * 5;
 
     heroGlow.style.transitionDuration = `${duration}s`;
     heroGlow.style.left = `${left}%`;
     heroGlow.style.top = `${top}%`;
-    heroGlow.style.transform = `translate(-50%, -50%) scale(${scale})`;
 
     setTimeout(wanderGlow, duration * 1000);
   };
