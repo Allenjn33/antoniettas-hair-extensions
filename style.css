@@ -423,15 +423,27 @@ h1, h2, h3 {
   }
 }
 
-/* Über mich */
-.ueber-grid {
+/* Feature-Block (Leistungen, Über mich – wiederverwendbares Baukastensystem, gespiegelt via .feature-grid-reverse) */
+.feature-grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   gap: 60px;
   align-items: center;
 }
 
-.ueber-photo-placeholder {
+.feature-grid-reverse {
+  grid-template-columns: 1.1fr 0.9fr;
+}
+
+.feature-grid-reverse .feature-text {
+  order: 1;
+}
+
+.feature-grid-reverse .feature-photo {
+  order: 2;
+}
+
+.feature-photo-placeholder {
   aspect-ratio: 4 / 5;
   background: linear-gradient(135deg, #1a1a1a, #333);
   color: var(--white);
@@ -444,37 +456,84 @@ h1, h2, h3 {
   text-transform: uppercase;
 }
 
-.ueber-text h2 {
+.feature-text h2 {
   text-align: left;
   margin-bottom: 24px;
 }
 
-.ueber-text h2::after {
+.feature-text h2::after {
   margin: 18px 0 0;
 }
 
-.ueber-text p {
+.feature-text h3 {
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+
+.feature-text p {
   color: var(--grey);
   font-size: 15px;
   margin-bottom: 16px;
 }
 
-.ueber-text p:last-child {
+.feature-text p:last-of-type {
   margin-bottom: 0;
 }
 
+.feature-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0 28px;
+}
+
+.feature-tags span {
+  border: 1px solid var(--gold);
+  color: var(--black);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 7px 16px;
+}
+
+.btn-dark {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+.btn-dark:hover {
+  background: transparent;
+  color: var(--black);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
 @media (max-width: 760px) {
-  .ueber-grid {
+  .feature-grid,
+  .feature-grid-reverse {
     grid-template-columns: 1fr;
     gap: 32px;
   }
-  .ueber-text h2 {
+  .feature-grid-reverse .feature-text {
+    order: 2;
+  }
+  .feature-grid-reverse .feature-photo {
+    order: 1;
+  }
+  .feature-text h2 {
     text-align: center;
   }
-  .ueber-text h2::after {
+  .feature-text h2::after {
     margin: 18px auto 0;
   }
-  .ueber-text p {
+  .feature-text p {
+    text-align: center;
+  }
+  .feature-tags {
+    justify-content: center;
+  }
+  .feature-text .btn {
+    display: block;
     text-align: center;
   }
 }
