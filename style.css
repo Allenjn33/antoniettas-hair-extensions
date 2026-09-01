@@ -504,6 +504,24 @@ h1, h2, h3 {
   margin-bottom: 16px;
 }
 
+.footer-social {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.footer-social a {
+  color: var(--white);
+  opacity: 0.75;
+  display: inline-flex;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.footer-social a:hover {
+  opacity: 1;
+  color: var(--gold);
+}
+
 .footer-nav {
   display: flex;
   justify-content: center;
