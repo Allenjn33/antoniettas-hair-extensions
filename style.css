@@ -434,6 +434,14 @@ h1, h2, h3 {
   text-transform: uppercase;
 }
 
+.feature-photo-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: top center;
+}
+
 .feature-text h2 {
   text-align: left;
   margin-bottom: 24px;
