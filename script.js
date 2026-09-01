@@ -1,5 +1,11 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Terminbuchung: keine Termine in der Vergangenheit wählbar
+const terminDatum = document.getElementById('termin-datum');
+if (terminDatum) {
+  terminDatum.min = new Date().toISOString().split('T')[0];
+}
+
 // Scroll-reveal animations
 const revealEls = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {

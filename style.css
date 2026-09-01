@@ -140,11 +140,15 @@ h1, h2, h3 {
 
 .eyebrow {
   display: inline-block;
-  color: var(--gold);
-  font-size: 12px;
-  letter-spacing: 3px;
+  color: var(--grey);
+  font-size: 13px;
+  letter-spacing: 4px;
   text-transform: uppercase;
   margin-bottom: 24px;
+}
+
+.eyebrow span {
+  color: var(--gold);
 }
 
 .hero-inner h1 {
@@ -311,43 +315,149 @@ h1, h2, h3 {
 .kontakt-intro {
   text-align: center;
   color: var(--grey);
-  margin-bottom: 36px;
+  margin-bottom: 50px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kontakt-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 60px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.kontakt-info h3 {
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+
+.kontakt-info h3:not(:first-child) {
+  margin-top: 36px;
+}
+
+.info-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.info-list li {
+  font-size: 15px;
+  color: var(--black);
+}
+
+.info-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.info-list a {
+  color: var(--black);
+  text-decoration: none;
+}
+
+.info-list a:hover {
+  color: var(--gold);
+}
+
+.hours-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 16px;
+}
+
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--grey);
+}
+
+.hours-list li span:first-child {
+  color: var(--black);
 }
 
 .kontakt-form {
-  max-width: 520px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
 .kontakt-form input,
+.kontakt-form select,
 .kontakt-form textarea {
   border: 1px solid #ddd;
   padding: 14px 16px;
   font-size: 15px;
   font-family: inherit;
   resize: none;
+  width: 100%;
+  background: var(--white);
+  color: var(--black);
 }
 
 .kontakt-form input:focus,
+.kontakt-form select:focus,
 .kontakt-form textarea:focus {
   outline: none;
-  border-color: var(--black);
+  border-color: var(--gold);
 }
 
 .kontakt-form .btn {
   background: var(--black);
   color: var(--white);
   border: 1px solid var(--black);
-  align-self: center;
+  align-self: flex-start;
   padding: 14px 48px;
+  margin-top: 8px;
 }
 
 .kontakt-form .btn:hover {
   background: transparent;
   color: var(--black);
+}
+
+@media (max-width: 760px) {
+  .kontakt-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .kontakt-form .btn {
+    align-self: center;
+  }
 }
 
 /* Footer */
@@ -362,6 +472,55 @@ h1, h2, h3 {
 .footer-logo {
   font-size: 18px;
   margin-bottom: 16px;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.footer-nav a {
+  color: var(--grey);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+  color: var(--white);
+}
+
+/* Legal pages */
+.legal {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.legal h1 {
+  font-size: 34px;
+  margin-bottom: 32px;
+}
+
+.legal h3 {
+  font-size: 17px;
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+
+.legal p {
+  color: var(--grey);
+  font-size: 15px;
+}
+
+.legal-note {
+  margin-top: 40px;
+  padding: 16px 20px;
+  border-left: 3px solid var(--gold);
+  background: var(--grey-light);
+  color: var(--black);
+  font-size: 13px;
 }
 
 @media (max-width: 640px) {
