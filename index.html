@@ -8,7 +8,9 @@
 </head>
 <body>
 
-<header class="site-header">
+<div class="progress-bar" id="progressBar"></div>
+
+<header class="site-header" id="siteHeader">
   <div class="container header-inner">
     <a href="#" class="logo">ANTONIETTA<span>S</span></a>
     <nav class="nav">
@@ -20,30 +22,37 @@
 </header>
 
 <section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
   <div class="container hero-inner">
-    <h1>Extensions, die man <em>spürt</em>, nicht sieht.</h1>
-    <p>Handgefertigte Haarverlängerungen für einen natürlichen, edlen Look.</p>
-    <a href="#kontakt" class="btn">Termin anfragen</a>
+    <p class="eyebrow reveal">Handgefertigt &middot; Salon Antoniettas</p>
+    <h1 class="reveal delay-1">Extensions, die man <em>spürt</em>, nicht sieht.</h1>
+    <p class="hero-sub reveal delay-2">Handgefertigte Haarverlängerungen für einen natürlichen, edlen Look.</p>
+    <a href="#kontakt" class="btn reveal delay-3">Termin anfragen</a>
   </div>
+  <div class="scroll-hint"><span></span></div>
 </section>
 
 <section id="leistungen" class="section">
   <div class="container">
-    <h2>Leistungen</h2>
+    <h2 class="reveal">Leistungen</h2>
     <div class="grid">
-      <div class="card">
+      <div class="card reveal">
+        <span class="card-index">01</span>
         <h3>Tape-In Extensions</h3>
         <p>Schonend, unsichtbar und langanhaltend – ideal für dauerhafte Fülle und Länge.</p>
       </div>
-      <div class="card">
+      <div class="card reveal delay-1">
+        <span class="card-index">02</span>
         <h3>Clip-In Extensions</h3>
         <p>Flexibel für den besonderen Anlass, im Handumdrehen angebracht und wieder entfernt.</p>
       </div>
-      <div class="card">
+      <div class="card reveal delay-2">
+        <span class="card-index">03</span>
         <h3>Microring Extensions</h3>
         <p>Ohne Hitze und Klebstoff, besonders haarschonend und langlebig.</p>
       </div>
-      <div class="card">
+      <div class="card reveal delay-3">
+        <span class="card-index">04</span>
         <h3>Pflege &amp; Beratung</h3>
         <p>Individuelle Farb- und Strukturberatung sowie Pflegeprodukte für langanhaltende Ergebnisse.</p>
       </div>
@@ -53,23 +62,23 @@
 
 <section id="galerie" class="section alt">
   <div class="container">
-    <h2>Galerie</h2>
+    <h2 class="reveal">Galerie</h2>
     <div class="gallery">
-      <div class="gallery-item placeholder">Bild 1</div>
-      <div class="gallery-item placeholder">Bild 2</div>
-      <div class="gallery-item placeholder">Bild 3</div>
-      <div class="gallery-item placeholder">Bild 4</div>
-      <div class="gallery-item placeholder">Bild 5</div>
-      <div class="gallery-item placeholder">Bild 6</div>
+      <div class="gallery-item placeholder reveal">Bild 1</div>
+      <div class="gallery-item placeholder reveal delay-1">Bild 2</div>
+      <div class="gallery-item placeholder reveal delay-2">Bild 3</div>
+      <div class="gallery-item placeholder reveal delay-1">Bild 4</div>
+      <div class="gallery-item placeholder reveal delay-2">Bild 5</div>
+      <div class="gallery-item placeholder reveal delay-3">Bild 6</div>
     </div>
   </div>
 </section>
 
 <section id="kontakt" class="section">
   <div class="container">
-    <h2>Kontakt</h2>
-    <p class="kontakt-intro">Schreib uns für eine unverbindliche Beratung oder einen Termin.</p>
-    <form class="kontakt-form" onsubmit="return false;">
+    <h2 class="reveal">Kontakt</h2>
+    <p class="kontakt-intro reveal">Schreib uns für eine unverbindliche Beratung oder einen Termin.</p>
+    <form class="kontakt-form reveal" onsubmit="return false;">
       <input type="text" placeholder="Name" required>
       <input type="email" placeholder="E-Mail" required>
       <textarea placeholder="Deine Nachricht" rows="5" required></textarea>
@@ -80,10 +89,11 @@
 
 <footer class="site-footer">
   <div class="container">
+    <p class="logo footer-logo">ANTONIETTA<span>S</span></p>
     <p>&copy; <span id="year"></span> Antoniettas Hair Extensions</p>
   </div>
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="script.js"></script>
 </body>
 </html>
