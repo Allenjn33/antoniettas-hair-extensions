@@ -228,6 +228,11 @@ h1, h2, h3 {
   gap: 32px;
 }
 
+.grid-single {
+  max-width: 360px;
+  margin: 0 auto;
+}
+
 .card {
   position: relative;
   border: 1px solid #e5e5e5;
