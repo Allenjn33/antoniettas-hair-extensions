@@ -61,7 +61,7 @@
 <section id="kontakt" class="section">
   <div class="container">
     <h2 class="reveal">Kontakt &amp; Termin</h2>
-    <p class="kontakt-intro reveal">Schreib uns für eine unverbindliche Beratung oder buche direkt deinen Wunschtermin.</p>
+    <p class="kontakt-intro reveal">Schreib uns für eine Beratung oder deinen Wunschtermin.</p>
 
     <div class="kontakt-grid">
       <div class="kontakt-info reveal">
@@ -108,6 +108,13 @@
             <input type="time" id="termin-uhrzeit" required>
           </div>
         </div>
+
+        <label class="form-label" for="anliegen">Art der Anfrage</label>
+        <select id="anliegen" required>
+          <option value="" disabled selected>Bitte auswählen</option>
+          <option>Termin</option>
+          <option>Beratungstermin</option>
+        </select>
 
         <textarea placeholder="Deine Nachricht (optional)" rows="4"></textarea>
         <button type="submit" class="btn">Termin anfragen</button>
