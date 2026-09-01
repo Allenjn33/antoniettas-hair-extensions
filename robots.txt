@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://allenjn33.github.io/antoniettas-hair-extensions/sitemap.xml

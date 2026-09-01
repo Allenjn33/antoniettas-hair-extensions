@@ -914,3 +914,83 @@ h1, h2, h3 {
   background: var(--gold);
   border-color: var(--gold);
 }
+
+/* Skip link (Barrierefreiheit) */
+.skip-link {
+  position: fixed;
+  top: -60px;
+  left: 16px;
+  background: var(--gold);
+  color: var(--black);
+  padding: 12px 20px;
+  font-size: 14px;
+  text-decoration: none;
+  z-index: 300;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* Seiten-Fade-in */
+body {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+body.page-loaded {
+  opacity: 1;
+}
+
+/* Aktiver Nav-Link (Scroll-Spy) */
+.nav a.active {
+  opacity: 1;
+  color: var(--gold);
+}
+
+/* Preis-Hinweis bei Leistungen */
+.price-note {
+  color: var(--grey);
+  font-size: 13px;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+/* Formular-Hinweis */
+.form-note {
+  color: var(--grey);
+  font-size: 12px;
+  text-align: center;
+  margin-top: -6px;
+}
+
+/* Quick-Contact (WhatsApp/Anruf) */
+.quick-contact {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 90;
+}
+
+.quick-contact-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--black);
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.quick-contact-btn:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+}

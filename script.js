@@ -1,5 +1,7 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+document.body.classList.add('page-loaded');
+
 // Terminbuchung: keine Termine in der Vergangenheit wählbar
 const terminDatum = document.getElementById('termin-datum');
 if (terminDatum) {
@@ -81,3 +83,54 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     }
   });
 });
+
+// Scroll-Spy: aktiven Nav-Link je nach sichtbarem Abschnitt markieren
+const navLinks = document.querySelectorAll('.nav a[href^="#"]');
+const spySections = Array.from(navLinks)
+  .map(link => document.querySelector(link.getAttribute('href')))
+  .filter(Boolean);
+
+if (navLinks.length && spySections.length) {
+  const spyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+        });
+      }
+    });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+
+  spySections.forEach(section => spyObserver.observe(section));
+}
+
+// Terminanfrage-Formular: öffnet eine vorausgefüllte E-Mail (bis ein echtes Formular-Backend angebunden ist)
+const terminForm = document.getElementById('terminForm');
+if (terminForm) {
+  terminForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('terminName').value;
+    const telefon = document.getElementById('terminTelefon').value;
+    const email = document.getElementById('terminEmail').value;
+    const leistung = document.getElementById('leistung').value;
+    const datum = document.getElementById('termin-datum').value;
+    const uhrzeit = document.getElementById('termin-uhrzeit').value;
+    const anliegen = document.getElementById('anliegen').value;
+    const nachricht = document.getElementById('terminNachricht').value;
+
+    const body = [
+      `Name: ${name}`,
+      `Telefon: ${telefon || '-'}`,
+      `E-Mail: ${email}`,
+      `Leistung: ${leistung}`,
+      `Art der Anfrage: ${anliegen}`,
+      `Datum: ${datum}`,
+      `Uhrzeit: ${uhrzeit}`,
+      `Nachricht: ${nachricht || '-'}`
+    ].join('\n');
+
+    const subject = `Terminanfrage von ${name}`;
+    window.location.href = `mailto:info@antoniettas.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+}

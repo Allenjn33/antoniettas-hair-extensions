@@ -4,10 +4,37 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Antoniettas Extensions</title>
+<meta name="description" content="Antoniettas Extensions in Saulheim – handgefertigte Bonding-Haarverlängerungen aus 100% Echthaar. Persönliche Beratung, Termine nach Vereinbarung.">
+<meta property="og:title" content="Antoniettas Extensions">
+<meta property="og:description" content="Handgefertigte Haarverlängerungen aus 100% Echthaar – persönliche Beratung in Saulheim.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="logo.svg">
 <link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="apple-touch-icon" href="logo.svg">
 <link rel="stylesheet" href="style.css">
+<noscript><style>body{opacity:1}</style></noscript>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "Antoniettas Extensions",
+  "image": "logo.svg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Nieder-Saulheimer Str. 45",
+    "postalCode": "55291",
+    "addressLocality": "Saulheim",
+    "addressCountry": "DE"
+  },
+  "telephone": "+491234567890",
+  "email": "info@antoniettas.de",
+  "priceRange": "Preis auf Anfrage"
+}
+</script>
 </head>
 <body>
+
+<a href="#main" class="skip-link">Zum Inhalt springen</a>
 
 <div class="progress-bar" id="progressBar"></div>
 
@@ -22,6 +49,8 @@
     </nav>
   </div>
 </header>
+
+<main id="main">
 
 <section class="hero">
   <div class="hero-glow"><div class="hero-glow-inner"></div></div>
@@ -59,6 +88,7 @@
         <span>Handgefertigt</span>
         <span>Langanhaltend</span>
       </div>
+      <p class="price-note">Preis auf Anfrage – abhängig von Haarmenge und -länge</p>
       <a href="#kontakt" class="btn btn-dark">Termin anfragen</a>
     </div>
     <div class="feature-photo reveal delay-1">
@@ -187,12 +217,12 @@
       <div class="kontakt-form-wrap reveal delay-1">
         <h3>Terminanfrage</h3>
 
-      <form class="kontakt-form" onsubmit="return false;">
+      <form class="kontakt-form" id="terminForm">
         <div class="form-row">
-          <input type="text" placeholder="Name" required>
-          <input type="tel" placeholder="Telefon">
+          <input type="text" id="terminName" placeholder="Name" required>
+          <input type="tel" id="terminTelefon" placeholder="Telefon">
         </div>
-        <input type="email" placeholder="E-Mail" required>
+        <input type="email" id="terminEmail" placeholder="E-Mail" required>
 
         <input type="hidden" id="leistung" value="Bonding Extensions">
 
@@ -214,13 +244,16 @@
           <option>Beratungstermin</option>
         </select>
 
-        <textarea placeholder="Deine Nachricht (optional)" rows="4"></textarea>
+        <textarea id="terminNachricht" placeholder="Deine Nachricht (optional)" rows="4"></textarea>
         <button type="submit" class="btn">Termin anfragen</button>
+        <p class="form-note">Öffnet dein E-Mail-Programm mit vorausgefüllter Anfrage.</p>
       </form>
       </div>
     </div>
   </div>
 </section>
+
+</main>
 
 <footer class="site-footer">
   <div class="container">
@@ -243,6 +276,15 @@
     <p>&copy; <span id="year"></span> Antoniettas Extensions</p>
   </div>
 </footer>
+
+<div class="quick-contact">
+  <a href="https://wa.me/491234567890" class="quick-contact-btn" target="_blank" rel="noopener" aria-label="WhatsApp schreiben">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M17.6 6.3A8.9 8.9 0 0 0 12 4a9 9 0 0 0-7.8 13.4L3 21l3.7-1.2A9 9 0 1 0 17.6 6.3ZM12 19.4a7.4 7.4 0 0 1-3.8-1l-.3-.2-2.8.9.9-2.7-.2-.3a7.5 7.5 0 1 1 6.2 3.3Zm4.1-5.6c-.2-.1-1.3-.7-1.6-.7-.2-.1-.4-.1-.5.1s-.6.7-.7.9-.3.2-.5.1a6.1 6.1 0 0 1-3-2.6c-.2-.4.2-.3.6-1.1.1-.1 0-.3 0-.4L9.6 8c-.1-.2-.3-.2-.5-.2h-.4a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.8 2 4.7 4.7 0 0 0 1 2.5 10.8 10.8 0 0 0 4.4 3.9c1.5.6 1.5.4 1.8.4a1.6 1.6 0 0 0 1-.7 1.3 1.3 0 0 0 .1-.7c0-.1-.2-.2-.5-.3Z"/></svg>
+  </a>
+  <a href="tel:+491234567890" class="quick-contact-btn" aria-label="Anrufen">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5c0-.6.4-1 1-1h3l2 5-2 1.5a11 11 0 0 0 5.5 5.5L15 14l5 2v3c0 .6-.4 1-1 1A15 15 0 0 1 4 5Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</div>
 
 <button class="back-to-top" id="backToTop" aria-label="Nach oben">
   <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
