@@ -543,12 +543,19 @@ h1, h2, h3 {
 /* Ablauf */
 .steps {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid #e5e5e5;
 }
 
 .step {
   text-align: center;
+  padding: 36px 24px;
+  border-left: 1px solid #e5e5e5;
+}
+
+.step:first-child {
+  border-left: none;
 }
 
 .step h3 {
@@ -559,6 +566,32 @@ h1, h2, h3 {
 .step p {
   color: var(--grey);
   font-size: 14px;
+}
+
+@media (max-width: 760px) {
+  .steps {
+    grid-template-columns: 1fr 1fr;
+  }
+  .step:nth-child(3) {
+    border-left: none;
+  }
+  .step:nth-child(1),
+  .step:nth-child(2) {
+    border-bottom: 1px solid #e5e5e5;
+  }
+}
+
+@media (max-width: 480px) {
+  .steps {
+    grid-template-columns: 1fr;
+  }
+  .step {
+    border-left: none !important;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .step:last-child {
+    border-bottom: none;
+  }
 }
 
 /* FAQ */
