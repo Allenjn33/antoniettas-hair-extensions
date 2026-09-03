@@ -46,6 +46,7 @@
       <a href="#ueber-mich">Über mich</a>
       <a href="#galerie">Galerie</a>
       <a href="#kontakt">Kontakt</a>
+      <a href="termin.html">Termin</a>
     </nav>
   </div>
 </header>
@@ -59,7 +60,7 @@
     <div class="hero-text">
       <h1 class="reveal">Extensions, die man <em>spürt</em>, nicht sieht.</h1>
       <p class="hero-sub reveal delay-1">Handgefertigte Haarverlängerungen aus 100% Echthaar für einen natürlichen, edlen Look.</p>
-      <a href="#kontakt" class="btn reveal delay-2">Termin anfragen</a>
+      <a href="termin.html" class="btn reveal delay-2">Termin buchen</a>
     </div>
   </div>
 
@@ -89,7 +90,7 @@
         <span>Langanhaltend</span>
       </div>
       <p class="price-note">Preis auf Anfrage – abhängig von Haarmenge und -länge</p>
-      <a href="#kontakt" class="btn btn-dark">Termin anfragen</a>
+      <a href="termin.html" class="btn btn-dark">Termin buchen</a>
     </div>
     <div class="feature-photo reveal delay-1">
       <div class="feature-photo-placeholder">Foto</div>
@@ -180,7 +181,10 @@
 <section id="kontakt" class="section alt">
   <div class="container">
     <h2 class="reveal">Kontakt &amp; Termin</h2>
-    <p class="kontakt-intro reveal">Schreib uns für eine Beratung oder deinen Wunschtermin.</p>
+    <p class="kontakt-intro reveal">Buch dir direkt einen freien Termin online, oder schreib uns für eine Beratung.</p>
+    <div class="kontakt-cta reveal">
+      <a href="termin.html" class="btn btn-dark">Termin online buchen</a>
+    </div>
 
     <div class="kontakt-grid">
       <div class="kontakt-info reveal">
@@ -215,7 +219,7 @@
       </div>
 
       <div class="kontakt-form-wrap reveal delay-1">
-        <h3>Terminanfrage</h3>
+        <h3>Oder schreib uns</h3>
 
       <form class="kontakt-form" id="terminForm">
         <div class="form-row">
@@ -224,29 +228,9 @@
         </div>
         <input type="email" id="terminEmail" placeholder="E-Mail" required>
 
-        <input type="hidden" id="leistung" value="Bonding Extensions">
-
-        <div class="form-row">
-          <div class="form-field">
-            <label class="form-label" for="termin-datum">Datum</label>
-            <input type="date" id="termin-datum" required>
-          </div>
-          <div class="form-field">
-            <label class="form-label" for="termin-uhrzeit">Uhrzeit</label>
-            <input type="time" id="termin-uhrzeit" required>
-          </div>
-        </div>
-
-        <label class="form-label" for="anliegen">Art der Anfrage</label>
-        <select id="anliegen" required>
-          <option value="" disabled selected>Bitte auswählen</option>
-          <option>Termin</option>
-          <option>Beratungstermin</option>
-        </select>
-
-        <textarea id="terminNachricht" placeholder="Deine Nachricht (optional)" rows="4"></textarea>
-        <button type="submit" class="btn">Termin anfragen</button>
-        <p class="form-note">Öffnet dein E-Mail-Programm mit vorausgefüllter Anfrage.</p>
+        <textarea id="terminNachricht" placeholder="Deine Nachricht" rows="5" required></textarea>
+        <button type="submit" class="btn">Nachricht senden</button>
+        <p class="form-note">Öffnet dein E-Mail-Programm mit vorausgefüllter Nachricht.</p>
       </form>
       </div>
     </div>

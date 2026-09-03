@@ -2,12 +2,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 document.body.classList.add('page-loaded');
 
-// Terminbuchung: keine Termine in der Vergangenheit wählbar
-const terminDatum = document.getElementById('termin-datum');
-if (terminDatum) {
-  terminDatum.min = new Date().toISOString().split('T')[0];
-}
-
 // Scroll-reveal animations
 const revealEls = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {
@@ -104,7 +98,7 @@ if (navLinks.length && spySections.length) {
   spySections.forEach(section => spyObserver.observe(section));
 }
 
-// Terminanfrage-Formular: öffnet eine vorausgefüllte E-Mail (bis ein echtes Formular-Backend angebunden ist)
+// Kontaktformular: öffnet eine vorausgefüllte E-Mail (bis ein echtes Formular-Backend angebunden ist)
 const terminForm = document.getElementById('terminForm');
 if (terminForm) {
   terminForm.addEventListener('submit', (e) => {
@@ -113,24 +107,16 @@ if (terminForm) {
     const name = document.getElementById('terminName').value;
     const telefon = document.getElementById('terminTelefon').value;
     const email = document.getElementById('terminEmail').value;
-    const leistung = document.getElementById('leistung').value;
-    const datum = document.getElementById('termin-datum').value;
-    const uhrzeit = document.getElementById('termin-uhrzeit').value;
-    const anliegen = document.getElementById('anliegen').value;
     const nachricht = document.getElementById('terminNachricht').value;
 
     const body = [
       `Name: ${name}`,
       `Telefon: ${telefon || '-'}`,
       `E-Mail: ${email}`,
-      `Leistung: ${leistung}`,
-      `Art der Anfrage: ${anliegen}`,
-      `Datum: ${datum}`,
-      `Uhrzeit: ${uhrzeit}`,
-      `Nachricht: ${nachricht || '-'}`
+      `Nachricht: ${nachricht}`
     ].join('\n');
 
-    const subject = `Terminanfrage von ${name}`;
+    const subject = `Nachricht von ${name}`;
     window.location.href = `mailto:info@antoniettas.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }

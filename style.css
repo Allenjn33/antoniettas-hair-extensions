@@ -636,6 +636,11 @@ h1, h2, h3 {
   margin-right: auto;
 }
 
+.kontakt-cta {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
 .kontakt-grid {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
@@ -852,6 +857,32 @@ h1, h2, h3 {
 
 .footer-nav a:hover {
   opacity: 1;
+}
+
+/* Termin-Seite (Calendly-Einbettung) */
+.section.termin-section {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.termin-page {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.termin-page h1 {
+  font-size: 36px;
+  margin-bottom: 14px;
+}
+
+.termin-page .kontakt-intro {
+  margin-bottom: 28px;
+}
+
+.termin-page .calendly-inline-widget {
+  margin-top: 0;
+  text-align: left;
 }
 
 /* Legal pages */
