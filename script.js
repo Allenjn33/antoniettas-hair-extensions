@@ -31,11 +31,27 @@ if (constructionBanner) {
   }
 }
 
-// Preisrechner mit Kasino-Effekt
+// Preisrechner Modal + Animation von unten
+const preisrechnerModal = document.getElementById('preisrechnerModal');
+const openPreisrechnerBtn = document.getElementById('openPreisrechner');
+const closePreisrechnerBtn = document.getElementById('closePreisrechner');
 const anzahlInput = document.getElementById('anzahl');
 const laengeInput = document.getElementById('laenge');
 const preisAnzeige = document.getElementById('preisAnzeige');
-const preisrechnerResult = document.querySelector('.preisrechner-result');
+
+if (openPreisrechnerBtn && closePreisrechnerBtn) {
+  openPreisrechnerBtn.addEventListener('click', () => {
+    preisrechnerModal.classList.add('open');
+  });
+  closePreisrechnerBtn.addEventListener('click', () => {
+    preisrechnerModal.classList.remove('open');
+  });
+  preisrechnerModal.addEventListener('click', (e) => {
+    if (e.target === preisrechnerModal) {
+      preisrechnerModal.classList.remove('open');
+    }
+  });
+}
 
 if (anzahlInput && laengeInput && preisAnzeige) {
   const PRICE_PER_UNIT = 6.10;
@@ -43,31 +59,45 @@ if (anzahlInput && laengeInput && preisAnzeige) {
   function calculatePrice() {
     const anzahl = parseInt(anzahlInput.value) || 1;
     const laenge = parseInt(laengeInput.value) || 1;
-    return (anzahl * laenge * PRICE_PER_UNIT).toFixed(2);
+    return (anzahl * laenge * PRICE_PER_UNIT).toFixed(2).replace('.', ',');
   }
 
   function animatePrice(targetPrice) {
-    if (preisrechnerResult) {
-      preisrechnerResult.classList.add('calculating');
-    }
+    const digits = targetPrice.split('');
+    let currentIndex = 0;
 
-    const finalPrice = parseFloat(targetPrice);
-    const steps = 30;
-    let currentStep = 0;
+    const animateNextDigit = () => {
+      if (currentIndex < digits.length) {
+        const char = digits[currentIndex];
+        if (char !== ' ' && char !== '€' && char !== ',') {
+          let startNum = 0;
+          let endNum = parseInt(char) || 0;
+          const duration = 400;
+          const steps = 20;
+          let step = 0;
 
-    const interval = setInterval(() => {
-      currentStep++;
-      if (currentStep < steps) {
-        const randomPrice = (Math.random() * finalPrice * 1.2).toFixed(2);
-        preisAnzeige.textContent = '€ ' + randomPrice;
-      } else {
-        preisAnzeige.textContent = '€ ' + targetPrice;
-        clearInterval(interval);
-        if (preisrechnerResult) {
-          preisrechnerResult.classList.remove('calculating');
+          const interval = setInterval(() => {
+            step++;
+            if (step < steps) {
+              const current = Math.floor(startNum + (endNum - startNum) * (step / steps));
+              digits[currentIndex] = current.toString();
+              preisAnzeige.textContent = '€ ' + digits.join('');
+            } else {
+              digits[currentIndex] = char;
+              preisAnzeige.textContent = '€ ' + digits.join('');
+              clearInterval(interval);
+              currentIndex++;
+              animateNextDigit();
+            }
+          }, duration / steps);
+        } else {
+          currentIndex++;
+          animateNextDigit();
         }
       }
-    }, 40);
+    };
+
+    animateNextDigit();
   }
 
   const updatePrice = () => {
