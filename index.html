@@ -273,7 +273,9 @@
 <div id="preisrechnerModal" class="preisrechner-modal">
   <div class="preisrechner-modal-content">
     <button class="preisrechner-close" id="closePreisrechner">✕</button>
+    <div class="preisrechner-ki-label">✨ KI-Kalkulator</div>
     <h3 class="preisrechner-title">Preisrechner</h3>
+    <p class="preisrechner-subtitle" id="preisrechnerSubtitle">Berechne deinen individuellen Preis</p>
     <div class="preisrechner-inputs">
       <div class="preisrechner-input-group">
         <label for="anzahl">Anzahl (Bondings)</label>
@@ -284,9 +286,11 @@
         <input type="number" id="laenge" min="1" max="100" value="40">
       </div>
     </div>
-    <div class="preisrechner-result">
-      <p class="preisrechner-label">Geschätzter Preis</p>
-      <div class="preisrechner-amount" id="preisAnzeige">€ 2440,00</div>
+    <button class="preisrechner-calc-btn" id="calcBtn">Rechnen</button>
+    <div class="preisrechner-result" id="preisrechnerResult">
+      <p class="preisrechner-label">Dein Preis</p>
+      <div class="preisrechner-amount" id="preisAnzeige"></div>
+      <div class="preisrechner-stripes"></div>
       <p class="preisrechner-note">ca.-Preis, finale Bestätigung im Termin</p>
     </div>
   </div>

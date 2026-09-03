@@ -31,17 +31,32 @@ if (constructionBanner) {
   }
 }
 
-// Preisrechner Modal + Animation von unten
+// Variierte Subtexte
+const subtexte = [
+  'Berechne deinen individuellen Preis',
+  'Dein perfekter Preis wartet',
+  'Finde deine ideale Kombination',
+  'Berechne jetzt dein Angebot',
+  'Entdecke deinen Traumpreis'
+];
+
+// Preisrechner Modal + Counter Animation
 const preisrechnerModal = document.getElementById('preisrechnerModal');
+const preisrechnerResult = document.getElementById('preisrechnerResult');
 const openPreisrechnerBtn = document.getElementById('openPreisrechner');
 const closePreisrechnerBtn = document.getElementById('closePreisrechner');
+const calcBtn = document.getElementById('calcBtn');
 const anzahlInput = document.getElementById('anzahl');
 const laengeInput = document.getElementById('laenge');
 const preisAnzeige = document.getElementById('preisAnzeige');
+const preisrechnerSubtitle = document.getElementById('preisrechnerSubtitle');
 
 if (openPreisrechnerBtn && closePreisrechnerBtn) {
   openPreisrechnerBtn.addEventListener('click', () => {
     preisrechnerModal.classList.add('open');
+    // Zufälliger Subtext
+    preisrechnerSubtitle.textContent = subtexte[Math.floor(Math.random() * subtexte.length)];
+    preisrechnerResult.classList.remove('show');
   });
   closePreisrechnerBtn.addEventListener('click', () => {
     preisrechnerModal.classList.remove('open');
@@ -53,62 +68,53 @@ if (openPreisrechnerBtn && closePreisrechnerBtn) {
   });
 }
 
-if (anzahlInput && laengeInput && preisAnzeige) {
-  const PRICE_PER_UNIT = 6.10;
+const PRICE_PER_UNIT = 6.10;
 
-  function calculatePrice() {
-    const anzahl = parseInt(anzahlInput.value) || 1;
-    const laenge = parseInt(laengeInput.value) || 1;
-    return (anzahl * laenge * PRICE_PER_UNIT).toFixed(2).replace('.', ',');
-  }
+function calculatePrice() {
+  const anzahl = parseInt(anzahlInput.value) || 1;
+  const laenge = parseInt(laengeInput.value) || 1;
+  return (anzahl * laenge * PRICE_PER_UNIT).toFixed(2).replace('.', ',');
+}
 
-  function animatePrice(targetPrice) {
-    const digits = targetPrice.split('');
-    let currentIndex = 0;
+function animateCounter(targetPrice) {
+  preisrechnerModal.classList.add('calculating');
+  preisAnzeige.innerHTML = '';
 
-    const animateNextDigit = () => {
-      if (currentIndex < digits.length) {
-        const char = digits[currentIndex];
-        if (char !== ' ' && char !== '€' && char !== ',') {
-          let startNum = 0;
-          let endNum = parseInt(char) || 0;
-          const duration = 400;
-          const steps = 20;
-          let step = 0;
+  const chars = ('€ ' + targetPrice).split('');
+  let delay = 0;
 
-          const interval = setInterval(() => {
-            step++;
-            if (step < steps) {
-              const current = Math.floor(startNum + (endNum - startNum) * (step / steps));
-              digits[currentIndex] = current.toString();
-              preisAnzeige.textContent = '€ ' + digits.join('');
-            } else {
-              digits[currentIndex] = char;
-              preisAnzeige.textContent = '€ ' + digits.join('');
-              clearInterval(interval);
-              currentIndex++;
-              animateNextDigit();
-            }
-          }, duration / steps);
-        } else {
-          currentIndex++;
-          animateNextDigit();
+  chars.forEach((char, idx) => {
+    setTimeout(() => {
+      if (char === ' ' || char === '€' || char === ',') {
+        preisAnzeige.innerHTML += char;
+      } else {
+        const digit = parseInt(char) || 0;
+        let html = '<span class="preisrechner-digit"><span class="preisrechner-digit-value">';
+
+        // Counter von 0 bis zur Zahl
+        for (let i = 0; i <= digit; i++) {
+          html += i + '<br>';
         }
+        html += '</span></span>';
+        preisAnzeige.innerHTML += html;
       }
-    };
 
-    animateNextDigit();
-  }
+      if (idx === chars.length - 1) {
+        setTimeout(() => {
+          preisrechnerModal.classList.remove('calculating');
+        }, 600);
+      }
+    }, delay);
+    delay += 100;
+  });
+}
 
-  const updatePrice = () => {
+if (calcBtn) {
+  calcBtn.addEventListener('click', () => {
     const newPrice = calculatePrice();
-    animatePrice(newPrice);
-  };
-
-  anzahlInput.addEventListener('input', updatePrice);
-  laengeInput.addEventListener('input', updatePrice);
-
-  updatePrice();
+    animateCounter(newPrice);
+    preisrechnerResult.classList.add('show');
+  });
 }
 
 // Scroll-reveal animations
