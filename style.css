@@ -305,7 +305,7 @@ h1, h2, h3 {
 
 .hero-line {
   stroke: var(--gold);
-  stroke-width: 1.2;
+  stroke-width: 1px;
   stroke-linecap: round;
   fill: none;
 }
@@ -313,7 +313,7 @@ h1, h2, h3 {
 .hero-strand {
   stroke: url(#heroLineFade);
   opacity: 0;
-  stroke-dasharray: 2200;
+  stroke-dasharray: 1100 2200;
   stroke-dashoffset: 2200;
   animation: lineDraw var(--hero-line-duration, 9s) cubic-bezier(0.45, 0, 0.55, 1) infinite;
   animation-delay: var(--hero-line-delay, 0s);
@@ -336,10 +336,10 @@ h1, h2, h3 {
 
 @keyframes lineDraw {
   0%   { stroke-dashoffset: 2200; opacity: 0; }
-  12%  { opacity: 0.18; }
-  50%  { stroke-dashoffset: 0; opacity: 0.18; }
-  88%  { opacity: 0.18; }
-  100% { stroke-dashoffset: -2200; opacity: 0; }
+  12%  { opacity: 0.14; }
+  50%  { stroke-dashoffset: 550; opacity: 0.14; }
+  88%  { opacity: 0.14; }
+  100% { stroke-dashoffset: -1100; opacity: 0; }
 }
 
 @media (max-width: 640px) {
