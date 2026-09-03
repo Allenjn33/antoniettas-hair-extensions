@@ -32,46 +32,78 @@
 
 <section class="section termin-section">
   <div class="container">
-    <div class="termin-form-wrap">
-      <h1 class="reveal is-visible">Termin buchen</h1>
-      <p class="kontakt-intro kontakt-intro-left reveal is-visible">Füll das Formular aus, ich melde mich persönlich zur Bestätigung.</p>
+    <h1 class="reveal is-visible">Termin buchen</h1>
+    <p class="kontakt-intro reveal is-visible">Füll das Formular aus, ich melde mich persönlich zur Bestätigung.</p>
 
-      <form class="kontakt-form" id="bookingForm" action="https://formspree.io/f/xljenogp" method="POST">
-        <input type="hidden" name="_subject" value="Neue Terminanfrage von der Website">
-        <div class="form-row">
-          <input type="text" id="bookingName" name="name" placeholder="Name *" required>
-          <input type="tel" id="bookingTelefon" name="telefon" placeholder="Telefon *" required>
-        </div>
-        <input type="email" id="bookingEmail" name="email" placeholder="E-Mail *" required>
+    <div class="kontakt-grid">
+      <div class="kontakt-info reveal">
+        <ul class="info-list">
+          <li>
+            <span class="info-label">Adresse</span>
+            Nieder-Saulheimer Str. 45, 55291 Saulheim
+          </li>
+          <li>
+            <span class="info-label">Telefon</span>
+            <a href="tel:+4917662839112">+49 176 62839112</a>
+          </li>
+          <li>
+            <span class="info-label">E-Mail</span>
+            <a href="mailto:info@antoniettas.de">info@antoniettas.de</a>
+          </li>
+        </ul>
 
-        <label class="form-label" for="bookingLeistung">Gewünschte Leistung *</label>
-        <select id="bookingLeistung" name="leistung" required>
-          <option value="" disabled selected>Leistung auswählen</option>
-          <option>Bonding Extensions</option>
-        </select>
+        <h3>Öffnungszeiten</h3>
+        <p class="hours-note">Öffnungszeiten: auf Anfrage</p>
 
-        <div class="form-row">
-          <div class="form-field">
-            <label class="form-label" for="bookingDatum">Wunschdatum *</label>
-            <input type="date" id="bookingDatum" name="datum" required>
+        <h3>Social Media</h3>
+        <a href="#" class="kontakt-social" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5"/>
+            <circle cx="12" cy="12" r="4.5"/>
+            <circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          Folge uns auf Instagram
+        </a>
+      </div>
+
+      <div class="kontakt-form-wrap reveal delay-1">
+        <form class="kontakt-form" id="bookingForm" action="https://formspree.io/f/xljenogp" method="POST">
+          <input type="hidden" name="_subject" value="Neue Terminanfrage von der Website">
+          <div class="form-row">
+            <input type="text" id="bookingName" name="name" placeholder="Name *" required>
+            <input type="tel" id="bookingTelefon" name="telefon" placeholder="Telefon *" required>
           </div>
-          <div class="form-field">
-            <label class="form-label" for="bookingUhrzeit">Wunschuhrzeit *</label>
-            <input type="time" id="bookingUhrzeit" name="uhrzeit" required>
+          <input type="email" id="bookingEmail" name="email" placeholder="E-Mail *" required>
+
+          <label class="form-label" for="bookingLeistung">Gewünschte Leistung *</label>
+          <select id="bookingLeistung" name="leistung" required>
+            <option value="" disabled selected>Leistung auswählen</option>
+            <option>Bonding Extensions</option>
+          </select>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="bookingDatum">Wunschdatum *</label>
+              <input type="date" id="bookingDatum" name="datum" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="bookingUhrzeit">Wunschuhrzeit *</label>
+              <input type="time" id="bookingUhrzeit" name="uhrzeit" required>
+            </div>
           </div>
-        </div>
 
-        <label class="form-label" for="bookingAnliegen">Art der Anfrage *</label>
-        <select id="bookingAnliegen" name="anliegen" required>
-          <option value="" disabled selected>Bitte auswählen</option>
-          <option>Termin</option>
-          <option>Beratungstermin</option>
-        </select>
+          <label class="form-label" for="bookingAnliegen">Art der Anfrage *</label>
+          <select id="bookingAnliegen" name="anliegen" required>
+            <option value="" disabled selected>Bitte auswählen</option>
+            <option>Termin</option>
+            <option>Beratungstermin</option>
+          </select>
 
-        <textarea id="bookingNachricht" name="nachricht" placeholder="Deine Nachricht (optional)" rows="4"></textarea>
-        <button type="submit" class="btn">Terminanfrage senden</button>
-        <p class="form-note" id="bookingFormNote">* Pflichtfeld &middot; Wird direkt an uns gesendet.</p>
-      </form>
+          <textarea id="bookingNachricht" name="nachricht" placeholder="Deine Nachricht (optional)" rows="4"></textarea>
+          <button type="submit" class="btn">Terminanfrage senden</button>
+          <p class="form-note" id="bookingFormNote">* Pflichtfeld &middot; Wird direkt an uns gesendet.</p>
+        </form>
+      </div>
     </div>
   </div>
 </section>
