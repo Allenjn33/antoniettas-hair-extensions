@@ -335,7 +335,7 @@ h1, h2, h3 {
   height: 2px;
   background: var(--gold);
   margin: 18px auto 0;
-  transition: width 1.1s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
+  transition: width 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
 }
 
 .section h2.is-visible::after,
@@ -1120,7 +1120,7 @@ body.page-loaded {
   height: 2px;
   background: var(--gold);
   margin: 18px auto 28px;
-  transition: width 1.1s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
+  transition: width 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
 }
 
 /* Zugangssperre (temporärer PIN-Schutz) */
