@@ -1011,6 +1011,17 @@ body.page-loaded {
   margin-top: -6px;
 }
 
+.form-note.form-error {
+  color: #b3261e;
+}
+
+.form-success {
+  color: var(--black);
+  font-size: 16px;
+  text-align: center;
+  padding: 20px 0;
+}
+
 /* Quick-Contact (WhatsApp/Anruf) */
 .quick-contact {
   position: fixed;

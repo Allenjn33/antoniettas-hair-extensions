@@ -100,30 +100,60 @@ if (navLinks.length && spySections.length) {
   spySections.forEach(section => spyObserver.observe(section));
 }
 
-// Kontaktformular: öffnet eine vorausgefüllte E-Mail (bis ein echtes Formular-Backend angebunden ist)
-const terminForm = document.getElementById('terminForm');
-if (terminForm) {
-  terminForm.addEventListener('submit', (e) => {
+// Formular per Formspree senden (echter Versand im Hintergrund, kein Mail-Programm nötig)
+function sendFormspreeForm(form, noteEl, successText) {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const name = document.getElementById('terminName').value;
-    const telefon = document.getElementById('terminTelefon').value;
-    const email = document.getElementById('terminEmail').value;
-    const nachricht = document.getElementById('terminNachricht').value;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn ? submitBtn.textContent : '';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Wird gesendet...';
+    }
+    if (noteEl) {
+      noteEl.textContent = '';
+    }
 
-    const body = [
-      `Name: ${name}`,
-      `Telefon: ${telefon || '-'}`,
-      `E-Mail: ${email}`,
-      `Nachricht: ${nachricht}`
-    ].join('\n');
-
-    const subject = `Nachricht von ${name}`;
-    window.location.href = `mailto:info@antoniettas.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+      .then((response) => {
+        if (response.ok) {
+          form.reset();
+          Array.from(form.children).forEach(el => el.style.display = 'none');
+          const success = document.createElement('p');
+          success.className = 'form-success';
+          success.textContent = successText;
+          form.appendChild(success);
+        } else {
+          throw new Error('Formspree error');
+        }
+      })
+      .catch(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+        if (noteEl) {
+          noteEl.textContent = 'Senden hat leider nicht geklappt. Schreib uns direkt an info@antoniettas.de.';
+          noteEl.classList.add('form-error');
+        }
+      });
   });
 }
 
-// Terminanfrage-Formular (termin.html): öffnet eine vorausgefüllte E-Mail
+const terminForm = document.getElementById('terminForm');
+if (terminForm) {
+  sendFormspreeForm(
+    terminForm,
+    document.getElementById('terminFormNote'),
+    'Danke für deine Nachricht! Wir melden uns so schnell wie möglich bei dir.'
+  );
+}
+
 const bookingDatum = document.getElementById('bookingDatum');
 if (bookingDatum) {
   bookingDatum.min = new Date().toISOString().split('T')[0];
@@ -131,30 +161,9 @@ if (bookingDatum) {
 
 const bookingForm = document.getElementById('bookingForm');
 if (bookingForm) {
-  bookingForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const name = document.getElementById('bookingName').value;
-    const telefon = document.getElementById('bookingTelefon').value;
-    const email = document.getElementById('bookingEmail').value;
-    const leistung = document.getElementById('bookingLeistung').value;
-    const datum = document.getElementById('bookingDatum').value;
-    const uhrzeit = document.getElementById('bookingUhrzeit').value;
-    const anliegen = document.getElementById('bookingAnliegen').value;
-    const nachricht = document.getElementById('bookingNachricht').value;
-
-    const body = [
-      `Name: ${name}`,
-      `Telefon: ${telefon || '-'}`,
-      `E-Mail: ${email}`,
-      `Leistung: ${leistung}`,
-      `Art der Anfrage: ${anliegen}`,
-      `Wunschdatum: ${datum}`,
-      `Wunschuhrzeit: ${uhrzeit}`,
-      `Nachricht: ${nachricht || '-'}`
-    ].join('\n');
-
-    const subject = `Terminanfrage von ${name}`;
-    window.location.href = `mailto:info@antoniettas.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  });
+  sendFormspreeForm(
+    bookingForm,
+    document.getElementById('bookingFormNote'),
+    'Danke für deine Terminanfrage! Wir bestätigen sie persönlich bei dir.'
+  );
 }
