@@ -247,6 +247,11 @@ h1, h2, h3 {
 
 .nav a:hover { opacity: 1; }
 
+.nav a.active {
+  opacity: 1;
+  color: var(--gold) !important;
+}
+
 /* Hero */
 .hero {
   position: relative;
@@ -1510,8 +1515,8 @@ body.page-loaded {
 .form-note {
   color: var(--grey);
   font-size: 12px;
-  text-align: center;
-  margin-top: -6px;
+  text-align: left;
+  margin-bottom: 12px;
 }
 
 .form-note.form-error {
