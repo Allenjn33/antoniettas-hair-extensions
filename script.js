@@ -101,7 +101,7 @@ if (navLinks.length && spySections.length) {
 }
 
 // Formular per Formspree senden (echter Versand im Hintergrund, kein Mail-Programm nötig)
-function sendFormspreeForm(form, noteEl, successText, calendarLinkBuilder) {
+function sendFormspreeForm(form, noteEl, successText, calendarBuilder) {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -115,12 +115,15 @@ function sendFormspreeForm(form, noteEl, successText, calendarLinkBuilder) {
       noteEl.textContent = '';
     }
 
-    const calendarLink = calendarLinkBuilder ? calendarLinkBuilder() : null;
+    const calendarData = calendarBuilder ? calendarBuilder() : null;
+    const calendarLink = calendarData ? calendarData.link : null;
 
     const formData = new FormData(form);
     if (calendarLink) {
       formData.append('Termin zum Google Kalender hinzufügen', calendarLink);
     }
+    // Hinweis: Formspree erlaubt im kostenlosen Plan keine Datei-Anhänge (z.B. .ics),
+    // deshalb bleibt es beim anklickbaren Kalender-Link als Textfeld.
 
     fetch(form.action, {
       method: 'POST',
@@ -184,25 +187,42 @@ if (bookingForm) {
     document.getElementById('bookingFormNote'),
     'Danke für deine Terminanfrage! Wir bestätigen sie persönlich bei dir.',
     () => {
+      const name = document.getElementById('bookingName').value;
+      const telefon = document.getElementById('bookingTelefon').value;
+      const email = document.getElementById('bookingEmail').value;
+      const leistung = document.getElementById('bookingLeistung').value || 'Termin';
+      const anliegen = document.getElementById('bookingAnliegen').value;
+      const nachricht = document.getElementById('bookingNachricht').value;
       const datum = document.getElementById('bookingDatum').value;
       const uhrzeit = document.getElementById('bookingUhrzeit').value;
-      const leistung = document.getElementById('bookingLeistung').value || 'Termin';
       if (!datum || !uhrzeit) return null;
 
       const start = new Date(`${datum}T${uhrzeit}`);
       const end = new Date(start.getTime() + 2 * 60 * 60 * 1000);
-      const fmt = (d) => d.toISOString().replace(/[-:]/g, '').split('.')[0];
+      const fmtGoogle = (d) => d.toISOString().replace(/[-:]/g, '').split('.')[0];
+
+      const title = `${leistung} – ${name}`;
+      const details = [
+        `Kundin: ${name}`,
+        `Telefon: ${telefon}`,
+        `E-Mail: ${email}`,
+        `Leistung: ${leistung}`,
+        `Art der Anfrage: ${anliegen}`,
+        `Nachricht: ${nachricht || '-'}`
+      ].join('\n');
+      const location = 'Nieder-Saulheimer Str. 45, 55291 Saulheim';
 
       const params = new URLSearchParams({
         action: 'TEMPLATE',
-        text: `${leistung} bei Antoniettas Extensions`,
-        dates: `${fmt(start)}/${fmt(end)}`,
-        details: 'Terminanfrage über antoniettas-extensions.de',
-        location: 'Nieder-Saulheimer Str. 45, 55291 Saulheim',
+        text: title,
+        dates: `${fmtGoogle(start)}/${fmtGoogle(end)}`,
+        details: details,
+        location: location,
         ctz: 'Europe/Berlin'
       });
+      const link = `https://calendar.google.com/calendar/render?${params.toString()}`;
 
-      return `https://calendar.google.com/calendar/render?${params.toString()}`;
+      return { link };
     }
   );
 }
