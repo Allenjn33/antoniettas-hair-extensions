@@ -81,11 +81,7 @@ h1, h2, h3 {
   justify-content: space-between;
   flex-wrap: wrap;
   height: 80px;
-  transition: height 0.3s ease;
-}
-
-.site-header.scrolled .header-inner {
-  height: 64px;
+  transition: background 0.4s ease;
 }
 
 /* Hamburger Menu */
@@ -1201,10 +1197,6 @@ body.page-loaded {
   align-items: center;
   justify-content: center;
   gap: 16px;
-}
-
-.site-header.scrolled ~ .construction-banner {
-  top: 64px;
 }
 
 .construction-banner button {
