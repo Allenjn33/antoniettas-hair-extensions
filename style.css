@@ -859,7 +859,7 @@ h1, h2, h3 {
   opacity: 1;
 }
 
-/* Termin-Seite (Calendly-Einbettung) */
+/* Termin-Seite (TidyCal-Einbettung) */
 .section.termin-section {
   padding-top: 56px;
   padding-bottom: 56px;
@@ -880,8 +880,8 @@ h1, h2, h3 {
   margin-bottom: 28px;
 }
 
-.termin-page .calendly-inline-widget {
-  margin-top: 0;
+.termin-page .tidycal-embed {
+  min-height: 750px;
   text-align: left;
 }
 
