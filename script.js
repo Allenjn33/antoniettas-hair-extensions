@@ -2,6 +2,85 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 document.body.classList.add('page-loaded');
 
+// Mobile Menü Toggle
+const menuToggle = document.getElementById('menuToggle');
+const nav = document.querySelector('.nav');
+if (menuToggle && nav) {
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    nav.classList.toggle('active');
+    menuToggle.setAttribute('aria-expanded', menuToggle.classList.contains('active'));
+  });
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      nav.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
+// Baustellen-Banner Schließen-Button
+const constructionBanner = document.querySelector('.construction-banner');
+if (constructionBanner) {
+  const closeBtn = constructionBanner.querySelector('button');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      constructionBanner.style.display = 'none';
+    });
+  }
+}
+
+// Preisrechner mit Kasino-Effekt
+const anzahlInput = document.getElementById('anzahl');
+const laengeInput = document.getElementById('laenge');
+const preisAnzeige = document.getElementById('preisAnzeige');
+const preisrechnerResult = document.querySelector('.preisrechner-result');
+
+if (anzahlInput && laengeInput && preisAnzeige) {
+  const PRICE_PER_UNIT = 6.10;
+
+  function calculatePrice() {
+    const anzahl = parseInt(anzahlInput.value) || 1;
+    const laenge = parseInt(laengeInput.value) || 1;
+    return (anzahl * laenge * PRICE_PER_UNIT).toFixed(2);
+  }
+
+  function animatePrice(targetPrice) {
+    if (preisrechnerResult) {
+      preisrechnerResult.classList.add('calculating');
+    }
+
+    const finalPrice = parseFloat(targetPrice);
+    const steps = 30;
+    let currentStep = 0;
+
+    const interval = setInterval(() => {
+      currentStep++;
+      if (currentStep < steps) {
+        const randomPrice = (Math.random() * finalPrice * 1.2).toFixed(2);
+        preisAnzeige.textContent = '€ ' + randomPrice;
+      } else {
+        preisAnzeige.textContent = '€ ' + targetPrice;
+        clearInterval(interval);
+        if (preisrechnerResult) {
+          preisrechnerResult.classList.remove('calculating');
+        }
+      }
+    }, 40);
+  }
+
+  const updatePrice = () => {
+    const newPrice = calculatePrice();
+    animatePrice(newPrice);
+  };
+
+  anzahlInput.addEventListener('input', updatePrice);
+  laengeInput.addEventListener('input', updatePrice);
+
+  updatePrice();
+}
+
 // Scroll-reveal animations
 const revealEls = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {

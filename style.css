@@ -88,24 +88,88 @@ h1, h2, h3 {
   height: 64px;
 }
 
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  width: 44px;
+  height: 44px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--black);
+  transition: background 0.3s ease;
+}
+
+.site-header.scrolled .menu-toggle span {
+  background: var(--white);
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(10px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-10px);
+}
+
 @media (max-width: 860px) {
+  .menu-toggle {
+    display: flex;
+  }
   .header-inner {
-    height: auto;
-    padding: 16px 0;
+    height: 64px;
+    padding: 0;
   }
   .site-header.scrolled .header-inner {
-    height: auto;
+    height: 64px;
   }
   .nav {
-    flex-basis: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4px 20px;
-    margin-top: 10px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-bottom: 1px solid #e5e5e5;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .site-header.scrolled .nav {
+    background: var(--black);
+    border-bottom-color: rgba(184,151,90,0.4);
+  }
+  .nav.active {
+    max-height: 500px;
   }
   .nav a {
+    display: block;
+    padding: 16px 24px;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
     margin-left: 0;
+    font-size: 14px;
+  }
+  .site-header.scrolled .nav a {
+    color: var(--white);
+    border-bottom-color: rgba(184,151,90,0.2);
   }
 }
 
@@ -956,9 +1020,16 @@ h1, h2, h3 {
 }
 
 .footer-logo {
-  font-size: 18px;
+  font-family: 'Georgia', serif;
+  font-size: 20px;
+  letter-spacing: 2.5px;
+  font-weight: 600;
   margin-bottom: 16px;
   color: var(--white);
+}
+
+.footer-logo span {
+  color: var(--gold);
 }
 
 .footer-social {
@@ -1096,6 +1167,171 @@ body.page-loaded {
   opacity: 1;
 }
 
+/* Baustellen-Banner */
+.construction-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--gold);
+  color: var(--black);
+  text-align: center;
+  padding: 12px 24px;
+  font-size: 14px;
+  z-index: 250;
+  animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.construction-banner button {
+  background: none;
+  border: none;
+  color: var(--black);
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 12px;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.construction-banner button:hover {
+  opacity: 0.7;
+}
+
+/* Preisrechner */
+#preisrechner {
+  background: linear-gradient(135deg, rgba(184,151,90,0.08) 0%, rgba(255,255,255,0) 100%);
+  border: 1px solid rgba(184,151,90,0.25);
+  border-radius: 12px;
+  padding: 48px 32px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.preisrechner-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 32px;
+  color: var(--black);
+}
+
+.preisrechner-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.preisrechner-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.preisrechner-input-group label {
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.preisrechner-input-group input {
+  border: 1px solid #ddd;
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.preisrechner-input-group input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 8px rgba(184,151,90,0.2);
+}
+
+.preisrechner-result {
+  position: relative;
+  text-align: center;
+  padding: 32px;
+  background: var(--white);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  animation: aiBorderPulse 3s ease-in-out infinite;
+  transition: box-shadow 0.3s ease;
+}
+
+@keyframes aiBorderPulse {
+  0%, 100% {
+    border-color: var(--gold);
+    box-shadow: 0 0 16px rgba(184,151,90,0.3);
+  }
+  50% {
+    border-color: rgba(184,151,90,0.5);
+    box-shadow: 0 0 32px rgba(184,151,90,0.5);
+  }
+}
+
+.preisrechner-result.calculating {
+  animation: aiSparkle 0.6s ease;
+}
+
+@keyframes aiSparkle {
+  0%, 100% {
+    box-shadow: 0 0 16px rgba(184,151,90,0.3);
+  }
+  50% {
+    box-shadow: 0 0 48px rgba(184,151,90,0.8), inset 0 0 20px rgba(184,151,90,0.2);
+  }
+}
+
+.preisrechner-label {
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 8px;
+}
+
+.preisrechner-amount {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 48px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: -1px;
+  line-height: 1.1;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preisrechner-note {
+  font-size: 13px;
+  color: var(--grey);
+  margin-top: 16px;
+  font-style: italic;
+}
+
+@media (max-width: 560px) {
+  #preisrechner {
+    padding: 32px 20px;
+  }
+  .preisrechner-inputs {
+    grid-template-columns: 1fr;
+  }
+  .preisrechner-amount {
+    font-size: 36px;
+  }
+}
+
 /* Aktiver Nav-Link (Scroll-Spy) */
 .nav a.active {
   opacity: 1;
@@ -1198,11 +1434,17 @@ body.page-loaded {
   text-align: center;
 }
 
-.site-gate-logo-img {
-  display: block;
-  height: 44px;
-  width: auto;
+.site-gate-logo-text {
+  font-family: 'Georgia', serif;
+  font-size: 24px;
+  letter-spacing: 2.5px;
+  font-weight: 600;
+  color: var(--white);
   margin: 0 auto 24px;
+}
+
+.site-gate-logo-text span {
+  color: var(--gold);
 }
 
 .site-gate-text {

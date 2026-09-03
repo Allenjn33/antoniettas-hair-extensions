@@ -34,9 +34,14 @@
 </head>
 <body>
 
+<div class="construction-banner">
+  Diese Website befindet sich noch in Entwicklung – weitere Informationen in Kürze.
+  <button type="button" aria-label="Schließen">✕</button>
+</div>
+
 <div id="siteGate" class="site-gate">
   <div class="site-gate-box">
-    <img src="images/logo-mark-white.png" alt="Antonietta's Hair Extensions &amp; Bonding" class="site-gate-logo-img">
+    <p class="site-gate-logo-text">Antoniettas <span>Extensions</span></p>
     <p class="site-gate-text">Diese Seite ist noch nicht öffentlich. Bitte Code eingeben.</p>
     <form id="siteGateForm">
       <input type="password" id="siteGatePin" inputmode="numeric" placeholder="Code" autocomplete="off" required>
@@ -53,10 +58,7 @@
 
 <header class="site-header" id="siteHeader">
   <div class="container header-inner">
-    <a href="#" class="logo logo-mark">
-      <img src="images/logo-mark-black.png" alt="Antonietta's Hair Extensions &amp; Bonding" class="logo-img logo-img-light">
-      <img src="images/logo-mark-white.png" alt="Antonietta's Hair Extensions &amp; Bonding" class="logo-img logo-img-dark">
-    </a>
+    <a href="#" class="logo">Antoniettas <span>Extensions</span></a>
     <nav class="nav">
       <a href="#leistungen">Leistungen</a>
       <a href="#ueber-mich">Über mich</a>
@@ -64,6 +66,11 @@
       <a href="#kontakt">Kontakt</a>
       <a href="termin.html">Termin</a>
     </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </header>
 
@@ -114,6 +121,29 @@
     </div>
     <div class="feature-photo reveal delay-1">
       <div class="feature-photo-placeholder">Foto</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div id="preisrechner" class="reveal">
+      <h3 class="preisrechner-title">Preisrechner</h3>
+      <div class="preisrechner-inputs">
+        <div class="preisrechner-input-group">
+          <label for="anzahl">Anzahl (Bondings)</label>
+          <input type="number" id="anzahl" min="1" max="100" value="10">
+        </div>
+        <div class="preisrechner-input-group">
+          <label for="laenge">Länge (cm)</label>
+          <input type="number" id="laenge" min="1" max="100" value="40">
+        </div>
+      </div>
+      <div class="preisrechner-result">
+        <p class="preisrechner-label">Geschätzter Preis</p>
+        <div class="preisrechner-amount" id="preisAnzeige">€ 0,00</div>
+        <p class="preisrechner-note">ca.-Preis, finale Bestätigung im Termin</p>
+      </div>
     </div>
   </div>
 </section>
@@ -262,7 +292,7 @@
 
 <footer class="site-footer">
   <div class="container">
-    <img src="images/logo-mark-white.png" alt="Antonietta&#39;s Hair Extensions & Bonding" class="footer-logo-img">
+    <p class="footer-logo">Antoniettas <span>Extensions</span></p>
 
     <div class="footer-social">
       <a href="#" aria-label="Instagram" target="_blank" rel="noopener">
