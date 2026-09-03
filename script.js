@@ -33,9 +33,11 @@ window.addEventListener('scroll', () => {
     backToTop.classList.toggle('visible', y > 400);
   }
 
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = docHeight > 0 ? (y / docHeight) * 100 : 0;
-  progressBar.style.width = progress + '%';
+  if (progressBar) {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (y / docHeight) * 100 : 0;
+    progressBar.style.width = progress + '%';
+  }
 
   if (heroBg) {
     heroBg.style.transform = `translateY(${y * 0.3}px)`;
@@ -117,6 +119,42 @@ if (terminForm) {
     ].join('\n');
 
     const subject = `Nachricht von ${name}`;
+    window.location.href = `mailto:info@antoniettas.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+}
+
+// Terminanfrage-Formular (termin.html): öffnet eine vorausgefüllte E-Mail
+const bookingDatum = document.getElementById('bookingDatum');
+if (bookingDatum) {
+  bookingDatum.min = new Date().toISOString().split('T')[0];
+}
+
+const bookingForm = document.getElementById('bookingForm');
+if (bookingForm) {
+  bookingForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('bookingName').value;
+    const telefon = document.getElementById('bookingTelefon').value;
+    const email = document.getElementById('bookingEmail').value;
+    const leistung = document.getElementById('bookingLeistung').value;
+    const datum = document.getElementById('bookingDatum').value;
+    const uhrzeit = document.getElementById('bookingUhrzeit').value;
+    const anliegen = document.getElementById('bookingAnliegen').value;
+    const nachricht = document.getElementById('bookingNachricht').value;
+
+    const body = [
+      `Name: ${name}`,
+      `Telefon: ${telefon || '-'}`,
+      `E-Mail: ${email}`,
+      `Leistung: ${leistung}`,
+      `Art der Anfrage: ${anliegen}`,
+      `Wunschdatum: ${datum}`,
+      `Wunschuhrzeit: ${uhrzeit}`,
+      `Nachricht: ${nachricht || '-'}`
+    ].join('\n');
+
+    const subject = `Terminanfrage von ${name}`;
     window.location.href = `mailto:info@antoniettas.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }
