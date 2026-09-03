@@ -2,11 +2,13 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 document.body.classList.add('page-loaded');
 
-// Hero-Linie: leicht variierende Geschwindigkeit, damit sie nicht immer gleich malt
+// Hero-Linie: leicht variierende Geschwindigkeit und Startzeit, damit sie nicht immer gleich malt
 const heroLine = document.querySelector('.hero-line-1');
 if (heroLine) {
-  const randomDuration = (6 + Math.random() * 4) + 's';
+  const randomDuration = (7 + Math.random() * 5) + 's';
+  const randomDelay = (Math.random() * 3) + 's';
   heroLine.style.setProperty('--hero-line-duration', randomDuration);
+  heroLine.style.setProperty('--hero-line-delay', randomDelay);
 }
 
 // Mobile Menü Toggle
