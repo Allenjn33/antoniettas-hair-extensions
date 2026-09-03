@@ -116,10 +116,7 @@
         <span>Handgefertigt</span>
         <span>Langanhaltend</span>
       </div>
-      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-        <a href="termin.html" class="btn btn-dark">Termin buchen</a>
-        <button id="openPreisrechner" class="btn btn-dark" style="cursor: pointer;">Preisrechner</button>
-      </div>
+      <a href="termin.html" class="btn btn-dark">Termin buchen</a>
       <p class="price-note">Preis auf Anfrage – abhängig von Haarmenge und -länge</p>
     </div>
     <div class="feature-photo reveal delay-1">
@@ -269,32 +266,6 @@
 </section>
 
 </main>
-
-<div id="preisrechnerModal" class="preisrechner-modal">
-  <div class="preisrechner-modal-content">
-    <button class="preisrechner-close" id="closePreisrechner">✕</button>
-    <div class="preisrechner-ki-label">Preiskalkulator</div>
-    <h3 class="preisrechner-title">Preisrechner</h3>
-    <p class="preisrechner-subtitle" id="preisrechnerSubtitle">Berechne deinen individuellen Preis</p>
-    <div class="preisrechner-inputs">
-      <div class="preisrechner-input-group">
-        <label for="anzahl">Anzahl (Bondings)</label>
-        <input type="number" id="anzahl" min="1" max="100" value="10">
-      </div>
-      <div class="preisrechner-input-group">
-        <label for="laenge">Länge (cm)</label>
-        <input type="number" id="laenge" min="1" max="100" value="40">
-      </div>
-    </div>
-    <button class="preisrechner-calc-btn" id="calcBtn">Rechnen</button>
-    <div class="preisrechner-result" id="preisrechnerResult">
-      <p class="preisrechner-label">Dein Preis</p>
-      <div class="preisrechner-amount" id="preisAnzeige"></div>
-      <div class="preisrechner-stripes"></div>
-      <p class="preisrechner-note">ca.-Preis, finale Bestätigung im Termin</p>
-    </div>
-  </div>
-</div>
 
 <footer class="site-footer">
   <div class="container">
