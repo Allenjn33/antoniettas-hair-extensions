@@ -878,6 +878,14 @@ h1, h2, h3 {
 
 .termin-form-wrap .kontakt-intro {
   margin-bottom: 36px;
+  max-width: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .termin-form-wrap .kontakt-intro {
+    white-space: normal;
+  }
 }
 
 .termin-form-wrap .kontakt-form {
