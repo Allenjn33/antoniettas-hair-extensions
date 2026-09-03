@@ -1107,3 +1107,83 @@ body.page-loaded {
   text-align: left;
   margin-left: 0;
 }
+
+/* Zugangssperre (temporärer PIN-Schutz) */
+.site-gate {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: var(--black);
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.site-gate-box {
+  max-width: 340px;
+  width: 100%;
+  text-align: center;
+}
+
+.site-gate-logo {
+  color: var(--white);
+  font-family: 'Georgia', serif;
+  font-size: 18px;
+  letter-spacing: 2.5px;
+  margin-bottom: 20px;
+}
+
+.site-gate-logo span {
+  color: var(--gold);
+}
+
+.site-gate-text {
+  color: var(--grey);
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+#siteGateForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#siteGatePin {
+  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: var(--white);
+  padding: 14px 16px;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 4px;
+}
+
+#siteGatePin::placeholder {
+  color: var(--grey);
+  letter-spacing: normal;
+}
+
+#siteGatePin:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.site-gate-box .btn {
+  background: var(--white);
+  color: var(--black);
+  border-color: var(--white);
+}
+
+.site-gate-box .btn:hover {
+  background: transparent;
+  color: var(--white);
+}
+
+.site-gate-error {
+  color: #e8877d;
+  font-size: 13px;
+  margin-top: 14px;
+  min-height: 16px;
+}

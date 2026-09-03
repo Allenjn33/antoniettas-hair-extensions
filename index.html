@@ -34,6 +34,19 @@
 </head>
 <body>
 
+<div id="siteGate" class="site-gate">
+  <div class="site-gate-box">
+    <p class="site-gate-logo">ANTONIETTA<span>S</span> EXTENSION<span>S</span></p>
+    <p class="site-gate-text">Diese Seite ist noch nicht öffentlich. Bitte Code eingeben.</p>
+    <form id="siteGateForm">
+      <input type="password" id="siteGatePin" inputmode="numeric" placeholder="Code" autocomplete="off" required>
+      <button type="submit" class="btn btn-dark">Weiter</button>
+    </form>
+    <p id="siteGateError" class="site-gate-error"></p>
+  </div>
+</div>
+<script src="gate.js"></script>
+
 <a href="#main" class="skip-link">Zum Inhalt springen</a>
 
 <div class="progress-bar" id="progressBar"></div>
