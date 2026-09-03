@@ -305,12 +305,12 @@ h1, h2, h3 {
 
 .hero-line {
   stroke: var(--gold);
-  stroke-width: 1.5;
+  stroke-width: 1.2;
   stroke-linecap: round;
   fill: none;
 }
 
-.hero-line-1 {
+.hero-strand {
   stroke: url(#heroLineFade);
   opacity: 0;
   stroke-dasharray: 2200;
@@ -319,15 +319,26 @@ h1, h2, h3 {
   animation-delay: var(--hero-line-delay, 0s);
 }
 
-.hero-line-2 {
-  display: none;
+.hero-strand-2 {
+  animation-duration: var(--hero-line-duration-2, 10.5s);
+  animation-delay: var(--hero-line-delay-2, 0.6s);
+}
+
+.hero-strand-3 {
+  animation-duration: var(--hero-line-duration-3, 8.2s);
+  animation-delay: var(--hero-line-delay-3, 1.3s);
+}
+
+.hero-strand-4 {
+  animation-duration: var(--hero-line-duration-4, 11.4s);
+  animation-delay: var(--hero-line-delay-4, 2.1s);
 }
 
 @keyframes lineDraw {
   0%   { stroke-dashoffset: 2200; opacity: 0; }
-  12%  { opacity: 0.22; }
-  50%  { stroke-dashoffset: 0; opacity: 0.22; }
-  88%  { opacity: 0.22; }
+  12%  { opacity: 0.18; }
+  50%  { stroke-dashoffset: 0; opacity: 0.18; }
+  88%  { opacity: 0.18; }
   100% { stroke-dashoffset: -2200; opacity: 0; }
 }
 

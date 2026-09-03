@@ -2,14 +2,15 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 document.body.classList.add('page-loaded');
 
-// Hero-Linie: leicht variierende Geschwindigkeit und Startzeit, damit sie nicht immer gleich malt
-const heroLine = document.querySelector('.hero-line-1');
-if (heroLine) {
+// Hero-Haarsträhnen: leicht variierende Geschwindigkeit und Startzeit pro Strähne, für organischen Look
+const heroStrands = document.querySelectorAll('.hero-strand');
+heroStrands.forEach((strand, i) => {
   const randomDuration = (7 + Math.random() * 5) + 's';
   const randomDelay = (Math.random() * 3) + 's';
-  heroLine.style.setProperty('--hero-line-duration', randomDuration);
-  heroLine.style.setProperty('--hero-line-delay', randomDelay);
-}
+  const suffix = i === 0 ? '' : '-' + (i + 1);
+  strand.style.setProperty('--hero-line-duration' + suffix, randomDuration);
+  strand.style.setProperty('--hero-line-delay' + suffix, randomDelay);
+});
 
 // Mobile Menü Toggle
 const menuToggle = document.getElementById('menuToggle');
