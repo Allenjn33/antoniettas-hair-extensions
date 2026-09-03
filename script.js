@@ -2,6 +2,13 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 document.body.classList.add('page-loaded');
 
+// Hero-Linie: leicht variierende Geschwindigkeit, damit sie nicht immer gleich malt
+const heroLine = document.querySelector('.hero-line-1');
+if (heroLine) {
+  const randomDuration = (6 + Math.random() * 4) + 's';
+  heroLine.style.setProperty('--hero-line-duration', randomDuration);
+}
+
 // Mobile Menü Toggle
 const menuToggle = document.getElementById('menuToggle');
 const nav = document.querySelector('.nav');

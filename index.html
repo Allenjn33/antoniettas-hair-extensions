@@ -80,7 +80,15 @@
   <div class="hero-glow"><div class="hero-glow-inner"></div></div>
   <div class="hero-bg" id="heroBg"></div>
   <svg class="hero-lines" viewBox="0 0 1200 500" preserveAspectRatio="none" aria-hidden="true">
-    <path class="hero-line hero-line-1" d="M -100,120 C 150,20 300,220 500,140 S 800,60 950,160 S 1150,260 1300,120" fill="none"/>
+    <defs>
+      <linearGradient id="heroLineFade" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="var(--gold)" stop-opacity="0"/>
+        <stop offset="25%" stop-color="var(--gold)" stop-opacity="1"/>
+        <stop offset="75%" stop-color="var(--gold)" stop-opacity="1"/>
+        <stop offset="100%" stop-color="var(--gold)" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <path class="hero-line hero-line-1" d="M -100,120 C 150,20 300,220 500,140 S 800,60 950,160 S 1150,260 1300,120" fill="none" stroke="url(#heroLineFade)"/>
     <path class="hero-line hero-line-2" d="M -100,380 C 200,300 250,460 480,380 C 620,330 560,220 700,260 C 820,295 780,400 950,360 S 1200,300 1300,380" fill="none"/>
   </svg>
   <div class="container hero-inner">
@@ -269,23 +277,33 @@
 
 <footer class="site-footer">
   <div class="container">
-    <p class="footer-logo">Antonietta <span>Extension Studio</span></p>
-
-    <div class="footer-social">
-      <a href="#" aria-label="Instagram" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6">
-          <rect x="2.5" y="2.5" width="19" height="19" rx="5"/>
-          <circle cx="12" cy="12" r="4.5"/>
-          <circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/>
-        </svg>
-      </a>
+    <div class="footer-grid">
+      <div class="footer-col-left">
+        <p class="footer-logo">Antonietta <span>Extension Studio</span></p>
+        <p class="footer-address">
+          Nieder-Saulheimer Str. 45<br>
+          55291 Saulheim<br>
+          <a href="tel:+4917662839112">+49 176 62839112</a><br>
+          <a href="mailto:info@antoniettas.de">info@antoniettas.de</a>
+        </p>
+      </div>
+      <div class="footer-col-right">
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6">
+              <rect x="2.5" y="2.5" width="19" height="19" rx="5"/>
+              <circle cx="12" cy="12" r="4.5"/>
+              <circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+        </div>
+        <nav class="footer-nav">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </nav>
+      </div>
     </div>
-
-    <nav class="footer-nav">
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-    </nav>
-    <p>&copy; <span id="year"></span> Antonietta Extension Studio</p>
+    <p class="footer-bottom">&copy; <span id="year"></span> Antonietta Extension Studio</p>
   </div>
 </footer>
 
