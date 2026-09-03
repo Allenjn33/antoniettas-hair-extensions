@@ -457,12 +457,25 @@ h1, h2, h3 {
   height: 2px;
   background: var(--gold);
   margin: 18px auto 0;
-  transition: width 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+  animation: drawLineLoop var(--line-duration, 3.5s) ease-in-out infinite;
 }
 
-.section h2.is-visible::after,
-.termin-section h1.is-visible::after {
-  width: 50px;
+@keyframes drawLineLoop {
+  0% {
+    width: 0;
+  }
+  25% {
+    width: 50px;
+  }
+  50% {
+    width: 50px;
+  }
+  75% {
+    width: 0;
+  }
+  100% {
+    width: 0;
+  }
 }
 
 /* Leistungen grid */
@@ -1560,7 +1573,7 @@ body.page-loaded {
   height: 2px;
   background: var(--gold);
   margin: 18px auto 28px;
-  transition: width 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+  animation: drawLineLoop var(--line-duration, 3.5s) ease-in-out infinite;
 }
 
 /* Zugangssperre (temporärer PIN-Schutz) */
