@@ -2,11 +2,12 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 document.body.classList.add('page-loaded');
 
-// Hero-Haarsträhnen: leicht variierende Geschwindigkeit und Startzeit pro Strähne, für organischen Look
+// Hero-Haarsträhnen: fast gleichzeitig, nur minimale Unterschiede in Tempo/Start
 const heroStrands = document.querySelectorAll('.hero-strand');
+const baseDuration = 8.5 + Math.random() * 2;
 heroStrands.forEach((strand, i) => {
-  const randomDuration = (7 + Math.random() * 5) + 's';
-  const randomDelay = (Math.random() * 3) + 's';
+  const randomDuration = (baseDuration + (Math.random() * 0.8 - 0.4)) + 's';
+  const randomDelay = (Math.random() * 0.5) + 's';
   const suffix = i === 0 ? '' : '-' + (i + 1);
   strand.style.setProperty('--hero-line-duration' + suffix, randomDuration);
   strand.style.setProperty('--hero-line-delay' + suffix, randomDelay);
