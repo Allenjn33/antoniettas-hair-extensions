@@ -171,6 +171,58 @@ h1, h2, h3 {
   50% { transform: scale(1.15); opacity: 0.75; }
 }
 
+/* Dezente Linien im Hero, die mit unregelmäßigem Tempo "gezeichnet" werden */
+.hero-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero-line {
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.hero-line-1 {
+  opacity: 0.28;
+  stroke-dasharray: 26 18;
+  stroke-dashoffset: 0;
+  animation: lineFlow1 17s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.hero-line-2 {
+  opacity: 0.16;
+  stroke-dasharray: 14 22;
+  stroke-dashoffset: 0;
+  animation: lineFlow2 23s cubic-bezier(0.45, 0, 0.55, 1) infinite reverse;
+}
+
+@keyframes lineFlow1 {
+  0%   { stroke-dashoffset: 0; }
+  22%  { stroke-dashoffset: -260; }
+  48%  { stroke-dashoffset: -340; }
+  75%  { stroke-dashoffset: -720; }
+  100% { stroke-dashoffset: -1040; }
+}
+
+@keyframes lineFlow2 {
+  0%   { stroke-dashoffset: 0; }
+  30%  { stroke-dashoffset: 180; }
+  55%  { stroke-dashoffset: 260; }
+  80%  { stroke-dashoffset: 640; }
+  100% { stroke-dashoffset: 900; }
+}
+
+@media (max-width: 640px) {
+  .hero-lines {
+    display: none;
+  }
+}
+
 .hero-inner {
   position: relative;
   z-index: 1;
