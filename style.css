@@ -1249,7 +1249,7 @@ body.page-loaded {
 }
 
 #preisrechnerModal.calculating .preisrechner-modal-content {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .preisrechner-ki-label {
@@ -1434,38 +1434,29 @@ body.page-loaded {
 
 .preisrechner-stripes {
   margin-top: 24px;
-  height: 60px;
-  border-radius: 8px;
-  background: linear-gradient(90deg, #FF6B6B, #FFD93D, #6BCB77, #4D96FF, #9D4EDD);
-  background-size: 200% 100%;
-  animation: rotateStripes 4s linear infinite;
-  overflow: hidden;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
   position: relative;
-}
-
-@keyframes rotateStripes {
-  0% {
-    background-position: 0% 0%;
-  }
-  100% {
-    background-position: 200% 0%;
-  }
+  overflow: hidden;
 }
 
 .preisrechner-stripes::after {
   content: '';
   position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px);
-  animation: slideStripes 8s linear infinite;
+  top: 0;
+  left: -30%;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+  animation: shimmerLine 2.5s ease-in-out infinite;
 }
 
-@keyframes slideStripes {
-  from {
-    transform: translateX(-40px);
+@keyframes shimmerLine {
+  0% {
+    left: -30%;
   }
-  to {
-    transform: translateX(40px);
+  100% {
+    left: 100%;
   }
 }
 
@@ -1500,7 +1491,7 @@ body.page-loaded {
   color: var(--grey);
   font-size: 13px;
   font-style: italic;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 /* Formular-Hinweis */
