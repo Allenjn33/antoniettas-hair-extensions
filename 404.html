@@ -33,13 +33,34 @@
   </div>
 </header>
 
-<section class="hero" style="padding: 160px 24px;">
+<section class="hero notfound-hero">
   <div class="hero-glow"><div class="hero-glow-inner"></div></div>
+  <svg class="hero-lines" viewBox="0 0 1200 500" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="heroLineFade404" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="var(--gold)" stop-opacity="0"/>
+        <stop offset="25%" stop-color="var(--gold)" stop-opacity="1"/>
+        <stop offset="75%" stop-color="var(--gold)" stop-opacity="1"/>
+        <stop offset="100%" stop-color="var(--gold)" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <path class="hero-line hero-line-1" d="M -100,120 C 150,20 300,220 500,140 S 800,60 950,160 S 1150,260 1300,120" fill="none" stroke="url(#heroLineFade404)"/>
+  </svg>
   <div class="container hero-inner">
     <div class="hero-text">
-      <h1>Seite nicht gefunden.</h1>
-      <p class="hero-sub">Diese Seite gibt es nicht (mehr). Vielleicht hat sich der Link geändert.</p>
-      <a href="index.html" class="btn">Zur Startseite</a>
+      <p class="notfound-code">404</p>
+      <h1>Diese Seite hat sich verabschiedet.</h1>
+      <p class="hero-sub">Der Link ist wohl nicht mehr aktuell – aber du findest bestimmt, was du suchst.</p>
+      <div class="notfound-links">
+        <a href="index.html" class="btn">Zur Startseite</a>
+        <a href="termin.html" class="btn btn-dark">Termin buchen</a>
+      </div>
+      <div class="notfound-shortcuts">
+        <a href="index.html#leistungen">Leistungen</a>
+        <a href="index.html#ueber-mich">Über mich</a>
+        <a href="index.html#galerie">Galerie</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </div>
     </div>
   </div>
 </section>
@@ -55,6 +76,7 @@
           <a href="tel:+4917662839112">+49 176 62839112</a><br>
           <a href="mailto:info@antoniettas.de">info@antoniettas.de</a>
         </p>
+        <p class="footer-hours">Termine nach Vereinbarung</p>
       </div>
       <div class="footer-col-right">
         <nav class="footer-nav">
