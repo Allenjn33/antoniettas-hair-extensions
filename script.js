@@ -43,12 +43,6 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 revealEls.forEach(el => revealObserver.observe(el));
 
-// Variierende Animation-Dauer für Underline-Striche
-document.querySelectorAll('.section h2, .termin-section h1').forEach(el => {
-  const randomDuration = (2.8 + Math.random() * 1.4) + 's';
-  el.style.setProperty('--line-duration', randomDuration);
-});
-
 // Header shrink + scroll progress bar
 const header = document.getElementById('siteHeader');
 const progressBar = document.getElementById('progressBar');
