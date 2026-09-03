@@ -713,6 +713,24 @@ h1, h2, h3 {
   color: var(--gold);
 }
 
+.info-list-cols li {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  align-items: baseline;
+  column-gap: 12px;
+}
+
+.info-list-cols .info-label {
+  margin-bottom: 0;
+}
+
+@media (max-width: 460px) {
+  .info-list-cols li {
+    grid-template-columns: 1fr;
+    row-gap: 4px;
+  }
+}
+
 .hours-list {
   list-style: none;
   display: flex;
@@ -989,6 +1007,13 @@ body.page-loaded {
   padding: 20px 0;
 }
 
+.calendar-link {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center;
+}
+
 /* Quick-Contact (WhatsApp/Anruf) */
 .quick-contact {
   position: fixed;
@@ -1017,4 +1042,9 @@ body.page-loaded {
 .quick-contact-btn:hover {
   background: var(--gold);
   border-color: var(--gold);
+}
+
+.termin-intro {
+  text-align: left;
+  margin-left: 0;
 }

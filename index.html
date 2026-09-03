@@ -189,10 +189,10 @@
 
     <div class="kontakt-grid">
       <div class="kontakt-info reveal">
-        <ul class="info-list">
+        <ul class="info-list info-list-cols">
           <li>
             <span class="info-label">Adresse</span>
-            Nieder-Saulheimer Str. 45, 55291 Saulheim
+            <span>Nieder-Saulheimer Str. 45, 55291 Saulheim</span>
           </li>
           <li>
             <span class="info-label">Telefon</span>
@@ -224,12 +224,12 @@
       <form class="kontakt-form" id="terminForm" action="https://formspree.io/f/xljenogp" method="POST">
         <input type="hidden" name="_subject" value="Neue Nachricht von der Website">
         <div class="form-row">
-          <input type="text" id="terminName" name="name" placeholder="Name *" required>
-          <input type="tel" id="terminTelefon" name="telefon" placeholder="Telefon *" required>
+          <input type="text" id="terminName" name="Name" placeholder="Name *" required>
+          <input type="tel" id="terminTelefon" name="Telefon" placeholder="Telefon *" required>
         </div>
         <input type="email" id="terminEmail" name="email" placeholder="E-Mail *" required>
 
-        <textarea id="terminNachricht" name="nachricht" placeholder="Deine Nachricht *" rows="5" required></textarea>
+        <textarea id="terminNachricht" name="Nachricht" placeholder="Deine Nachricht *" rows="5" required></textarea>
         <button type="submit" class="btn">Nachricht senden</button>
         <p class="form-note" id="terminFormNote">* Pflichtfeld &middot; Wird direkt an uns gesendet.</p>
       </form>

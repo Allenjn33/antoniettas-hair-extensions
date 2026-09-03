@@ -33,14 +33,14 @@
 <section class="section termin-section">
   <div class="container">
     <h1 class="reveal is-visible">Termin buchen</h1>
-    <p class="kontakt-intro reveal is-visible">Füll das Formular aus, ich melde mich persönlich zur Bestätigung.</p>
+    <p class="kontakt-intro termin-intro reveal is-visible">Füll das Formular aus, ich melde mich persönlich zur Bestätigung.</p>
 
     <div class="kontakt-grid">
       <div class="kontakt-info reveal">
-        <ul class="info-list">
+        <ul class="info-list info-list-cols">
           <li>
             <span class="info-label">Adresse</span>
-            Nieder-Saulheimer Str. 45, 55291 Saulheim
+            <span>Nieder-Saulheimer Str. 45, 55291 Saulheim</span>
           </li>
           <li>
             <span class="info-label">Telefon</span>
@@ -70,13 +70,13 @@
         <form class="kontakt-form" id="bookingForm" action="https://formspree.io/f/xljenogp" method="POST">
           <input type="hidden" name="_subject" value="Neue Terminanfrage von der Website">
           <div class="form-row">
-            <input type="text" id="bookingName" name="name" placeholder="Name *" required>
-            <input type="tel" id="bookingTelefon" name="telefon" placeholder="Telefon *" required>
+            <input type="text" id="bookingName" name="Name" placeholder="Name *" required>
+            <input type="tel" id="bookingTelefon" name="Telefon" placeholder="Telefon *" required>
           </div>
           <input type="email" id="bookingEmail" name="email" placeholder="E-Mail *" required>
 
           <label class="form-label" for="bookingLeistung">Gewünschte Leistung *</label>
-          <select id="bookingLeistung" name="leistung" required>
+          <select id="bookingLeistung" name="Gewünschte Leistung" required>
             <option value="" disabled selected>Leistung auswählen</option>
             <option>Bonding Extensions</option>
           </select>
@@ -84,22 +84,22 @@
           <div class="form-row">
             <div class="form-field">
               <label class="form-label" for="bookingDatum">Wunschdatum *</label>
-              <input type="date" id="bookingDatum" name="datum" required>
+              <input type="date" id="bookingDatum" name="Wunschdatum" required>
             </div>
             <div class="form-field">
               <label class="form-label" for="bookingUhrzeit">Wunschuhrzeit *</label>
-              <input type="time" id="bookingUhrzeit" name="uhrzeit" required>
+              <input type="time" id="bookingUhrzeit" name="Wunschuhrzeit" required>
             </div>
           </div>
 
           <label class="form-label" for="bookingAnliegen">Art der Anfrage *</label>
-          <select id="bookingAnliegen" name="anliegen" required>
+          <select id="bookingAnliegen" name="Art der Anfrage" required>
             <option value="" disabled selected>Bitte auswählen</option>
             <option>Termin</option>
             <option>Beratungstermin</option>
           </select>
 
-          <textarea id="bookingNachricht" name="nachricht" placeholder="Deine Nachricht (optional)" rows="4"></textarea>
+          <textarea id="bookingNachricht" name="Nachricht" placeholder="Deine Nachricht (optional)" rows="4"></textarea>
           <button type="submit" class="btn">Terminanfrage senden</button>
           <p class="form-note" id="bookingFormNote">* Pflichtfeld &middot; Wird direkt an uns gesendet.</p>
         </form>
