@@ -1103,9 +1103,8 @@ body.page-loaded {
   border-color: var(--gold);
 }
 
-.termin-intro {
-  text-align: left;
-  margin-left: 0;
+.termin-section h1 {
+  text-align: center;
 }
 
 /* Zugangssperre (temporärer PIN-Schutz) */
