@@ -130,6 +130,41 @@ h1, h2, h3 {
   color: var(--gold);
 }
 
+.logo-mark {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  display: block;
+  height: 34px;
+  width: auto;
+  transition: height 0.3s ease;
+}
+
+.site-header.scrolled .logo-img {
+  height: 30px;
+}
+
+.logo-img-dark {
+  display: none;
+}
+
+.site-header.scrolled .logo-img-light {
+  display: none;
+}
+
+.site-header.scrolled .logo-img-dark {
+  display: block;
+}
+
+.footer-logo-img {
+  display: block;
+  height: 40px;
+  width: auto;
+  margin: 0 auto 16px;
+}
+
 .nav a {
   color: var(--black);
   text-decoration: none;
@@ -1163,16 +1198,11 @@ body.page-loaded {
   text-align: center;
 }
 
-.site-gate-logo {
-  color: var(--white);
-  font-family: 'Georgia', serif;
-  font-size: 18px;
-  letter-spacing: 2.5px;
-  margin-bottom: 20px;
-}
-
-.site-gate-logo span {
-  color: var(--gold);
+.site-gate-logo-img {
+  display: block;
+  height: 44px;
+  width: auto;
+  margin: 0 auto 24px;
 }
 
 .site-gate-text {
