@@ -331,10 +331,16 @@ h1, h2, h3 {
 .section h2::after {
   content: '';
   display: block;
-  width: 50px;
+  width: 0;
   height: 2px;
   background: var(--gold);
   margin: 18px auto 0;
+  transition: width 1.1s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
+}
+
+.section h2.is-visible::after,
+.termin-section h1.is-visible::after {
+  width: 50px;
 }
 
 /* Leistungen grid */
@@ -1105,6 +1111,16 @@ body.page-loaded {
 
 .termin-section h1 {
   text-align: center;
+}
+
+.termin-section h1::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  margin: 18px auto 28px;
+  transition: width 1.1s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
 }
 
 /* Zugangssperre (temporärer PIN-Schutz) */
