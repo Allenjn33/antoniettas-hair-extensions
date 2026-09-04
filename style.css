@@ -844,20 +844,42 @@ h1, h2, h3 {
 }
 
 .termin-call-hint {
-  text-align: center;
-  color: var(--grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: fit-content;
+  margin: 0 auto 50px;
+  padding: 12px 24px;
+  border: 1px solid rgba(184,151,90,0.4);
+  border-radius: 30px;
+  color: var(--black);
+  text-decoration: none;
   font-size: 14px;
-  margin-bottom: 50px;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
-.termin-call-hint a {
+.termin-call-hint svg {
   color: var(--gold);
-  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.termin-call-hint strong {
+  color: var(--gold);
   font-weight: 600;
 }
 
-.termin-call-hint a:hover {
-  text-decoration: underline;
+.termin-call-hint:hover {
+  border-color: var(--gold);
+  background: rgba(184,151,90,0.06);
+}
+
+@media (max-width: 500px) {
+  .termin-call-hint {
+    text-align: left;
+    white-space: normal;
+    padding: 12px 20px;
+  }
 }
 
 .kontakt-cta {
