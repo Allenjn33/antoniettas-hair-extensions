@@ -582,13 +582,13 @@ h1, h2, h3 {
 }
 
 .gallery-item img.img-top {
-  transform: scale(0.92);
+  transform: scale(1.05);
   object-position: center 65%;
 }
 
 .gallery-item img.img-zoom {
   transform: scale(1.32);
-  object-position: center 15%;
+  object-position: 65% 15%;
 }
 
 @media (max-width: 700px) {
