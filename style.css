@@ -581,6 +581,15 @@ h1, h2, h3 {
   object-position: center 20%;
 }
 
+.gallery-item img.img-top {
+  object-position: center 0%;
+}
+
+.gallery-item img.img-zoom {
+  transform: scale(1.25);
+  object-position: center 15%;
+}
+
 @media (max-width: 700px) {
   .gallery-row {
     flex-wrap: wrap;
