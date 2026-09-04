@@ -141,7 +141,7 @@ if (navLinks.length && spySections.length) {
 }
 
 // Formular per Formspree senden (echter Versand im Hintergrund, kein Mail-Programm nötig)
-function sendFormspreeForm(form, noteEl, successText, calendarBuilder) {
+function sendFormspreeForm(form, noteEl, successText, calendarBuilder, showCheckmark) {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -175,10 +175,28 @@ function sendFormspreeForm(form, noteEl, successText, calendarBuilder) {
           form.reset();
           Array.from(form.children).forEach(el => el.style.display = 'none');
 
+          if (showCheckmark) {
+            const checkWrap = document.createElement('div');
+            checkWrap.className = 'form-checkmark';
+            checkWrap.innerHTML = `
+              <svg viewBox="0 0 52 52">
+                <circle class="form-checkmark-circle" cx="26" cy="26" r="24" fill="none"/>
+                <path class="form-checkmark-tick" fill="none" d="M14 27l7 7 16-16"/>
+              </svg>`;
+            form.appendChild(checkWrap);
+          }
+
           const success = document.createElement('p');
           success.className = 'form-success';
           success.textContent = successText;
           form.appendChild(success);
+
+          if (showCheckmark) {
+            const note = document.createElement('p');
+            note.className = 'form-success-note';
+            note.textContent = 'Dein Termin ist noch nicht final – ich bestätige ihn persönlich telefonisch bei dir.';
+            form.appendChild(note);
+          }
 
           if (calendarLink) {
             const calLink = document.createElement('a');
@@ -225,7 +243,7 @@ if (bookingForm) {
   sendFormspreeForm(
     bookingForm,
     document.getElementById('bookingFormNote'),
-    'Danke für deine Terminanfrage! Wir bestätigen sie persönlich bei dir.',
+    'Danke für deine Terminanfrage!',
     () => {
       const name = document.getElementById('bookingName').value;
       const telefon = document.getElementById('bookingTelefon').value;
@@ -263,6 +281,7 @@ if (bookingForm) {
       const link = `https://calendar.google.com/calendar/render?${params.toString()}`;
 
       return { link };
-    }
+    },
+    true
   );
 }

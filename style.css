@@ -1358,7 +1358,51 @@ body.page-loaded {
   color: var(--black);
   font-size: 16px;
   text-align: center;
-  padding: 20px 0;
+  padding: 20px 0 8px;
+}
+
+.form-success-note {
+  color: var(--grey);
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.form-checkmark {
+  display: flex;
+  justify-content: center;
+  padding-top: 12px;
+}
+
+.form-checkmark svg {
+  width: 64px;
+  height: 64px;
+}
+
+.form-checkmark-circle {
+  stroke: var(--gold);
+  stroke-width: 2;
+  stroke-dasharray: 151;
+  stroke-dashoffset: 151;
+  animation: checkmarkCircle 0.5s ease-out forwards;
+}
+
+.form-checkmark-tick {
+  stroke: var(--gold);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 30;
+  stroke-dashoffset: 30;
+  animation: checkmarkTick 0.35s ease-out 0.45s forwards;
+}
+
+@keyframes checkmarkCircle {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes checkmarkTick {
+  to { stroke-dashoffset: 0; }
 }
 
 .calendar-link {
