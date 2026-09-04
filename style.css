@@ -586,8 +586,8 @@ h1, h2, h3 {
 }
 
 .gallery-item img.img-zoom {
-  transform: scale(1.25);
-  object-position: center 15%;
+  transform: scale(1.15);
+  object-position: center 60%;
 }
 
 @media (max-width: 700px) {
