@@ -1201,10 +1201,17 @@ h1, h2, h3 {
 @media (max-width: 600px) {
   .footer-grid {
     flex-direction: column;
+    align-items: center;
     text-align: center;
+  }
+  .footer-col-left {
+    align-items: center;
   }
   .footer-col-right {
     align-items: center;
+  }
+  .footer-social {
+    justify-content: center;
   }
   .footer-nav {
     align-items: center;
