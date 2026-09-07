@@ -58,6 +58,10 @@ h1, h2, h3 {
   padding: 0 24px;
 }
 
+.logo-break {
+  display: none;
+}
+
 /* Header / Logo */
 .site-header {
   background: var(--white);
@@ -129,15 +133,24 @@ h1, h2, h3 {
     flex-shrink: 0;
   }
   .header-inner {
-    height: 64px;
-    padding: 0 16px;
+    height: auto;
+    min-height: 64px;
+    padding: 10px 16px;
   }
   .site-header.scrolled .header-inner {
-    height: 64px;
+    height: auto;
+    min-height: 64px;
   }
   .logo {
     font-size: 15px;
     letter-spacing: 1px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    line-height: 1.3;
+  }
+  .logo-break {
+    display: block;
   }
   .nav {
     position: absolute;
@@ -156,7 +169,7 @@ h1, h2, h3 {
   .site-header.scrolled .nav {
     background: var(--black);
     border-bottom-color: rgba(184,151,90,0.4);
-    top: 64px;
+    top: 100%;
   }
   .nav.active {
     max-height: 500px;
