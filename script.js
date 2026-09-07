@@ -8,7 +8,7 @@ document.body.classList.add('page-loaded');
 // (Format "G-XXXXXXXXXX"), zu finden unter analytics.google.com in deiner Property.
 // Analytics wird NUR geladen, wenn der Besucher im Cookie-Banner "Akzeptieren" klickt.
 // ==========================================================================
-const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+const GA_MEASUREMENT_ID = 'G-C5ZKHMRC6G';
 
 function loadGoogleAnalytics() {
   if (window.gaLoaded) return;
