@@ -139,14 +139,6 @@ h1, h2, h3 {
     font-size: 15px;
     letter-spacing: 1px;
   }
-}
-
-@media (max-width: 420px) {
-  .logo {
-    font-size: 12px;
-    letter-spacing: 0.5px;
-  }
-}
   .nav {
     position: absolute;
     top: 100%;
@@ -180,6 +172,13 @@ h1, h2, h3 {
   .site-header.scrolled .nav a {
     color: var(--white);
     border-bottom-color: rgba(184,151,90,0.2);
+  }
+}
+
+@media (max-width: 420px) {
+  .logo {
+    font-size: 12px;
+    letter-spacing: 0.5px;
   }
 }
 
