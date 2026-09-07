@@ -126,14 +126,27 @@ h1, h2, h3 {
 @media (max-width: 860px) {
   .menu-toggle {
     display: flex;
+    flex-shrink: 0;
   }
   .header-inner {
     height: 64px;
-    padding: 0;
+    padding: 0 16px;
   }
   .site-header.scrolled .header-inner {
     height: 64px;
   }
+  .logo {
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 420px) {
+  .logo {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+}
   .nav {
     position: absolute;
     top: 100%;
@@ -179,6 +192,10 @@ h1, h2, h3 {
   font-weight: 600;
   white-space: nowrap;
   transition: opacity 0.2s, color 0.4s ease;
+  flex-shrink: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .site-header.scrolled .logo {
