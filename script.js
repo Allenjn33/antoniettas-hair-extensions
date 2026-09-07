@@ -2,6 +2,56 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 document.body.classList.add('page-loaded');
 
+// ==========================================================================
+// Google Analytics + Cookie-Consent
+// WICHTIG: Ersetze GA_MEASUREMENT_ID unten mit deiner echten GA4 Measurement-ID
+// (Format "G-XXXXXXXXXX"), zu finden unter analytics.google.com in deiner Property.
+// Analytics wird NUR geladen, wenn der Besucher im Cookie-Banner "Akzeptieren" klickt.
+// ==========================================================================
+const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+
+function loadGoogleAnalytics() {
+  if (window.gaLoaded) return;
+  window.gaLoaded = true;
+
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+  document.head.appendChild(script);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { window.dataLayer.push(arguments); }
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+}
+
+const cookieConsent = document.getElementById('cookieConsent');
+const cookieAccept = document.getElementById('cookieAccept');
+const cookieDecline = document.getElementById('cookieDecline');
+const consentChoice = localStorage.getItem('cookieConsent');
+
+if (consentChoice === 'accepted') {
+  loadGoogleAnalytics();
+} else if (!consentChoice && cookieConsent) {
+  cookieConsent.classList.add('show');
+}
+
+if (cookieAccept) {
+  cookieAccept.addEventListener('click', () => {
+    localStorage.setItem('cookieConsent', 'accepted');
+    cookieConsent.classList.remove('show');
+    loadGoogleAnalytics();
+  });
+}
+
+if (cookieDecline) {
+  cookieDecline.addEventListener('click', () => {
+    localStorage.setItem('cookieConsent', 'declined');
+    cookieConsent.classList.remove('show');
+  });
+}
+
 // Hero-Haarsträhnen: fast gleichzeitig, nur minimale Unterschiede in Tempo/Start
 const heroStrands = document.querySelectorAll('.hero-strand');
 const baseDuration = 8.5 + Math.random() * 2;
