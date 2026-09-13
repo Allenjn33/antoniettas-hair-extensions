@@ -671,6 +671,10 @@ h1, h2, h3 {
   object-position: top center;
 }
 
+.feature-photo-img.img-leistungen {
+  object-position: 65% center;
+}
+
 .feature-text h2 {
   text-align: left;
   margin-bottom: 24px;
@@ -1528,87 +1532,6 @@ body.page-loaded {
   background: var(--gold);
   margin: 18px auto 28px;
   transition: width 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
-}
-
-/* Zugangssperre (temporärer PIN-Schutz) */
-.site-gate {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 500;
-  background: var(--black);
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-}
-
-.site-gate-box {
-  max-width: 340px;
-  width: 100%;
-  text-align: center;
-}
-
-.site-gate-logo-text {
-  font-family: 'Georgia', serif;
-  font-size: 24px;
-  letter-spacing: 2.5px;
-  font-weight: 600;
-  color: var(--white);
-  margin: 0 auto 24px;
-}
-
-.site-gate-logo-text span {
-  color: var(--gold);
-}
-
-.site-gate-text {
-  color: var(--grey);
-  font-size: 14px;
-  margin-bottom: 24px;
-}
-
-#siteGateForm {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-#siteGatePin {
-  border: 1px solid rgba(255,255,255,0.2);
-  background: transparent;
-  color: var(--white);
-  padding: 14px 16px;
-  font-size: 18px;
-  text-align: center;
-  letter-spacing: 4px;
-}
-
-#siteGatePin::placeholder {
-  color: var(--grey);
-  letter-spacing: normal;
-}
-
-#siteGatePin:focus {
-  outline: none;
-  border-color: var(--gold);
-}
-
-.site-gate-box .btn {
-  background: var(--white);
-  color: var(--black);
-  border-color: var(--white);
-}
-
-.site-gate-box .btn:hover {
-  background: transparent;
-  color: var(--white);
-}
-
-.site-gate-error {
-  color: #e8877d;
-  font-size: 13px;
-  margin-top: 14px;
-  min-height: 16px;
 }
 
 /* 404-Seite */
