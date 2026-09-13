@@ -563,10 +563,13 @@ h1, h2, h3 {
   width: 100%;
 }
 
+.gallery-more-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
 .galerie-more {
-  position: absolute;
-  top: -34px;
-  right: 0;
   color: var(--black);
   text-decoration: none;
   font-size: 13px;
