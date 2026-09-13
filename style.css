@@ -283,7 +283,7 @@ h1, h2, h3 {
   background: var(--black);
   color: var(--white);
   text-align: center;
-  padding: 160px 24px 60px;
+  padding: 160px 24px 160px;
   overflow: hidden;
 }
 
