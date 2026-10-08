@@ -31,10 +31,38 @@ const cookieAccept = document.getElementById('cookieAccept');
 const cookieDecline = document.getElementById('cookieDecline');
 const consentChoice = localStorage.getItem('cookieConsent');
 
+// Neukundenrabatt-Popup: erscheint einmal, nachdem der Besucher die Cookie-Entscheidung
+// getroffen hat (akzeptiert oder abgelehnt), höchstens alle 14 Tage erneut.
+const offerPopup = document.getElementById('offerPopup');
+const offerPopupClose = document.getElementById('offerPopupClose');
+const offerPopupDismiss = document.getElementById('offerPopupDismiss');
+const OFFER_POPUP_INTERVAL_DAYS = 14;
+
+function maybeShowOfferPopup() {
+  if (!offerPopup) return;
+  const lastShown = localStorage.getItem('offerPopupShown');
+  const daysSince = lastShown ? (Date.now() - Number(lastShown)) / 86400000 : Infinity;
+  if (daysSince < OFFER_POPUP_INTERVAL_DAYS) return;
+  setTimeout(() => {
+    offerPopup.classList.add('show');
+    localStorage.setItem('offerPopupShown', String(Date.now()));
+  }, 600);
+}
+
+function closeOfferPopup() {
+  if (offerPopup) offerPopup.classList.remove('show');
+}
+
+if (offerPopupClose) offerPopupClose.addEventListener('click', closeOfferPopup);
+if (offerPopupDismiss) offerPopupDismiss.addEventListener('click', closeOfferPopup);
+
 if (consentChoice === 'accepted') {
   loadGoogleAnalytics();
+  maybeShowOfferPopup();
 } else if (!consentChoice && cookieConsent) {
   cookieConsent.classList.add('show');
+} else if (consentChoice === 'declined') {
+  maybeShowOfferPopup();
 }
 
 if (cookieAccept) {
@@ -42,15 +70,40 @@ if (cookieAccept) {
     localStorage.setItem('cookieConsent', 'accepted');
     cookieConsent.classList.remove('show');
     loadGoogleAnalytics();
+    maybeShowOfferPopup();
+  });
+}
+
+// Widerruf: GA deaktivieren und bereits gesetzte _ga-Cookies löschen
+function revokeGoogleAnalytics() {
+  window[`ga-disable-${GA_MEASUREMENT_ID}`] = true;
+  const domains = ['', location.hostname, '.' + location.hostname.replace(/^www\./, '')];
+  document.cookie.split(';').forEach((c) => {
+    const name = c.split('=')[0].trim();
+    if (!name.startsWith('_ga')) return;
+    domains.forEach((d) => {
+      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/${d ? '; domain=' + d : ''}`;
+    });
   });
 }
 
 if (cookieDecline) {
   cookieDecline.addEventListener('click', () => {
+    const wasAccepted = localStorage.getItem('cookieConsent') === 'accepted';
     localStorage.setItem('cookieConsent', 'declined');
     cookieConsent.classList.remove('show');
+    if (wasAccepted) revokeGoogleAnalytics();
+    maybeShowOfferPopup();
   });
 }
+
+// "Cookie-Einstellungen" im Footer: Banner erneut öffnen, um Einwilligung zu ändern
+document.querySelectorAll('.cookie-settings-link').forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (cookieConsent) cookieConsent.classList.add('show');
+  });
+});
 
 // Hero-Haarsträhnen: fast gleichzeitig, nur minimale Unterschiede in Tempo/Start
 const heroStrands = document.querySelectorAll('.hero-strand');
@@ -117,7 +170,7 @@ window.addEventListener('scroll', () => {
   const darkThreshold = leistungenSection
     ? leistungenSection.offsetTop - header.offsetHeight
     : 80;
-  header.classList.toggle('scrolled', y > darkThreshold);
+  if (header) header.classList.toggle('scrolled', y > darkThreshold);
 
   if (backToTop) {
     backToTop.classList.toggle('visible', y > 400);
@@ -162,7 +215,9 @@ if (heroGlow) {
 // Smooth anchor scrolling
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', (e) => {
-    const target = document.querySelector(link.getAttribute('href'));
+    const href = link.getAttribute('href');
+    if (href === '#') return;
+    const target = document.querySelector(href);
     if (target) {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });

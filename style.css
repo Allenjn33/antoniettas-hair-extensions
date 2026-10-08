@@ -1897,3 +1897,156 @@ body.page-loaded {
     font-size: 22px;
   }
 }
+
+/* Bewertungen */
+.reviews-summary {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.reviews-stars {
+  color: var(--gold);
+  font-size: 28px;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+}
+
+.reviews-score {
+  color: var(--grey);
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+
+.reviews-score strong {
+  color: var(--black);
+  font-size: 18px;
+}
+
+.reviews-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.map-embed {
+  border: 1px solid #e5e5e5;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.map-embed iframe {
+  display: block;
+  filter: grayscale(0.15);
+}
+
+@media (max-width: 600px) {
+  .reviews-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .reviews-actions .btn {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+}
+
+/* Neukundenrabatt-Popup */
+.offer-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,10,10,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 300;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.offer-popup.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.offer-popup-inner {
+  position: relative;
+  background: var(--black);
+  color: var(--white);
+  border: 1px solid rgba(184,151,90,0.4);
+  max-width: 420px;
+  width: 100%;
+  padding: 44px 36px 36px;
+  text-align: center;
+  transform: translateY(16px);
+  transition: transform 0.3s ease;
+}
+
+.offer-popup.show .offer-popup-inner {
+  transform: translateY(0);
+}
+
+.offer-popup-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--grey);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.offer-popup-close:hover {
+  color: var(--white);
+}
+
+.offer-popup-eyebrow {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.offer-popup-inner h3 {
+  font-family: 'Georgia', serif;
+  font-weight: 400;
+  font-size: 26px;
+  margin-bottom: 14px;
+}
+
+.offer-popup-text {
+  color: #cfcfcf;
+  font-size: 14px;
+  margin-bottom: 26px;
+}
+
+.offer-popup-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.offer-popup-buttons .btn {
+  width: 100%;
+  text-align: center;
+}
+
+.offer-popup-dismiss {
+  background: none;
+  border: none;
+  color: var(--grey);
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.offer-popup-dismiss:hover {
+  color: var(--white);
+}
