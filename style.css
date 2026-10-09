@@ -2050,3 +2050,54 @@ body.page-loaded {
 .offer-popup-dismiss:hover {
   color: var(--white);
 }
+
+/* Terminort / Mobiler Service */
+.terminort-grid {
+  max-width: 760px;
+  margin: 0 auto;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.terminort-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+
+.terminort-grid .card h3 {
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+.terminort-grid .card p {
+  color: var(--grey);
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+.terminort-address {
+  color: var(--black) !important;
+  font-weight: 600;
+  font-size: 14px !important;
+}
+
+.terminort-badge {
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.terminort-grid .card .btn {
+  margin-top: 6px;
+}
+
+@media (max-width: 600px) {
+  .terminort-grid {
+    grid-template-columns: 1fr;
+  }
+}
