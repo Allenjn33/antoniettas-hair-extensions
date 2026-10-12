@@ -9,6 +9,7 @@ document.body.classList.add('page-loaded');
 // Analytics wird NUR geladen, wenn der Besucher im Cookie-Banner "Akzeptieren" klickt.
 // ==========================================================================
 const GA_MEASUREMENT_ID = 'G-C5ZKHMRC6G';
+const GOOGLE_ADS_ID = 'AW-18436556217';
 
 function loadGoogleAnalytics() {
   if (window.gaLoaded) return;
@@ -24,6 +25,7 @@ function loadGoogleAnalytics() {
   window.gtag = gtag;
   gtag('js', new Date());
   gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+  gtag('config', GOOGLE_ADS_ID);
 }
 
 const cookieConsent = document.getElementById('cookieConsent');
@@ -77,6 +79,7 @@ if (cookieAccept) {
 // Widerruf: GA deaktivieren und bereits gesetzte _ga-Cookies löschen
 function revokeGoogleAnalytics() {
   window[`ga-disable-${GA_MEASUREMENT_ID}`] = true;
+  window[`ga-disable-${GOOGLE_ADS_ID}`] = true;
   const domains = ['', location.hostname, '.' + location.hostname.replace(/^www\./, '')];
   document.cookie.split(';').forEach((c) => {
     const name = c.split('=')[0].trim();
