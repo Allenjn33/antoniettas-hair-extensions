@@ -2101,3 +2101,20 @@ body.page-loaded {
     grid-template-columns: 1fr;
   }
 }
+
+.kontakt-social + .kontakt-social { margin-left: 18px; }
+.hwk-badge {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 8px;
+  margin: 4px auto 20px;
+  padding: 6px 14px;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+@media (max-width: 480px) { .kontakt-social + .kontakt-social { margin-left: 0; display: flex; margin-top: 10px; } }
