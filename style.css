@@ -2118,3 +2118,9 @@ body.page-loaded {
   color: var(--gold);
 }
 @media (max-width: 480px) { .kontakt-social + .kontakt-social { margin-left: 0; display: flex; margin-top: 10px; } }
+
+.gallery-item img[src$="galerie-3.jpg"],
+.gallery-item img[src$="galerie-4.jpg"] {
+  transform: scale(1.15);
+  transform-origin: center 40%;
+}
