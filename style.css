@@ -2129,3 +2129,5 @@ body.page-loaded {
   transform: scale(1.35);
   transform-origin: center 45%;
 }
+
+.kontakt-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
