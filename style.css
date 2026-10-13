@@ -2124,3 +2124,8 @@ body.page-loaded {
   transform: scale(1.15);
   transform-origin: center 40%;
 }
+
+.gallery-item img[src$="galerie-4.jpg"] {
+  transform: scale(1.35);
+  transform-origin: center 45%;
+}
