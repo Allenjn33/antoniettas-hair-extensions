@@ -2108,7 +2108,7 @@ body.page-loaded {
   width: fit-content;
   align-items: center;
   gap: 8px;
-  margin: 4px auto 20px;
+  margin: 22px auto 0;
   padding: 6px 14px;
   border: 1px solid var(--gold);
   border-radius: 999px;
