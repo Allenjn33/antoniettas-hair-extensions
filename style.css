@@ -2119,13 +2119,13 @@ body.page-loaded {
 }
 @media (max-width: 480px) { .kontakt-social + .kontakt-social { margin-left: 0; display: flex; margin-top: 10px; } }
 
-.gallery-item img[src$="galerie-3.jpg"],
-.gallery-item img[src$="galerie-4.jpg"] {
+.gallery-item img[src$="echthaar-extensions-blond-natuerlich.jpg"],
+.gallery-item img[src$="lange-extensions-dunkel-karamell-straehnen.jpg"] {
   transform: scale(1.15);
   transform-origin: center 40%;
 }
 
-.gallery-item img[src$="galerie-4.jpg"] {
+.gallery-item img[src$="lange-extensions-dunkel-karamell-straehnen.jpg"] {
   transform: scale(1.35);
   transform-origin: center 45%;
 }

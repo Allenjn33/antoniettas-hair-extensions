@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://antonietta-hairextensions.de/</loc>
     <priority>1.0</priority>
+    <image:image><image:loc>https://antonietta-hairextensions.de/images/bonding-extensions-balayage-blond.jpg</image:loc><image:title>Lange Bonding Extensions mit Balayage-Blond, Rückansicht</image:title></image:image>
+    <image:image><image:loc>https://antonietta-hairextensions.de/images/haarverlaengerung-dunkel-locken.jpg</image:loc><image:title>Dunkle Haarverlängerung mit Locken, Rückansicht</image:title></image:image>
+    <image:image><image:loc>https://antonietta-hairextensions.de/images/echthaar-extensions-blond-natuerlich.jpg</image:loc><image:title>Blonde Extensions mit natürlichem Fall, Rückansicht</image:title></image:image>
+    <image:image><image:loc>https://antonietta-hairextensions.de/images/lange-extensions-dunkel-karamell-straehnen.jpg</image:loc><image:title>Lange dunkle Extensions mit karamellfarbenen Strähnen, Rückansicht</image:title></image:image>
   </url>
   <url>
     <loc>https://antonietta-hairextensions.de/neukundenrabatt/</loc>
