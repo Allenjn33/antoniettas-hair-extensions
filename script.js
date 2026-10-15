@@ -344,3 +344,15 @@ if (lengthPopup) {
   lengthPopup.addEventListener('click', e => { if (e.target === lengthPopup) closeLength(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLength(); });
 }
+
+// Saubere Adresse: "index.html" und ein einzelnes "#" aus der URL entfernen
+(function cleanUrl() {
+  const clean = location.pathname.replace(/index\.html$/, '') + location.search + location.hash;
+  if (clean !== location.pathname + location.search + location.hash || location.href.endsWith('#')) history.replaceState(null, '', clean);
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href="#"]');
+    if (a && a.classList.contains('cookie-settings-link')) {
+      setTimeout(() => history.replaceState(null, '', location.pathname + location.search), 0);
+    }
+  });
+})();
