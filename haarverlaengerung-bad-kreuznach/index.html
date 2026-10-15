@@ -44,6 +44,38 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "Wie lange halten Bonding Extensions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Je nach Haarstruktur und Pflege halten sie in der Regel mehrere Monate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Schaden die Extensions meinem Haar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bei fachgerechter Anwendung und Pflege sind sie schonend."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie viel kostet die Behandlung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Der Preis richtet sich nach Haarmenge und Länge, die genauen Kosten besprechen wir in einer persönlichen Beratung."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie lange dauert ein Termin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rechne je nach gewünschtem Ergebnis mit ein bis mehreren Stunden."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Wie komme ich von Bad Kreuznach zum Studio?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -56,22 +88,6 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Wir sprechen über deine Wünsche, wählen Farbe und Struktur passend zu deinem Haar, ich arbeite die Extensions handgefertigt ein, und du bekommst Tipps zur Pflege."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Ist ein Termin bei mir zu Hause in Bad Kreuznach möglich?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nach Absprache ja. Ob ein Termin vor Ort passt, klären wir vorab per Telefon oder WhatsApp."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wie viel kostet eine Behandlung?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Der Preis richtet sich nach Haarmenge und -länge – die genauen Kosten besprechen wir in einer persönlichen Beratung."
       }
     }
   ]
@@ -89,8 +105,8 @@
     <a href="../index.html" class="logo">Antonietta <span>Hair</span> <br class="logo-break"><span>Extensions Studio</span></a>
     <nav class="nav">
       <a href="#leistungen">Leistungen</a>
-      <a href="#anfahrt">Anfahrt</a>
-      <a href="#faq">Fragen</a>
+      <a href="#ueber-mich">Über mich</a>
+      <a href="#galerie">Galerie</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
     <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen" aria-expanded="false">
@@ -131,15 +147,30 @@
   </div>
 </section>
 
-<section id="leistungen" class="section">
+<section id="ueber-mich" class="section">
+  <div class="container feature-grid feature-grid-reverse">
+    <div class="feature-text reveal delay-1">
+      <h2>Das bin ich</h2>
+      <p>Ich bin Antonietta. Haarverlängerung ist für mich eine Kunst, die ich mit Leidenschaft und viel Liebe zum Detail ausübe. Jede Kundin ist anders, deshalb stimme ich das Ergebnis in Ruhe auf dich ab.</p>
+      <p>Handwerk, Qualität und ein natürlicher Look stehen bei mir an erster Stelle.</p>
+      <p class="price-note">HWK geprüft</p>
+    </div>
+    <div class="feature-photo reveal">
+      <img src="../images/antonietta.webp" alt="Antonietta in ihrem Salon" class="feature-photo-img">
+    </div>
+  </div>
+</section>
+
+<section id="leistungen" class="section alt">
   <div class="container feature-grid feature-grid-reverse">
     <div class="feature-text reveal">
-      <h2>Bonding Extensions</h2>
-      <p>Von Bad Kreuznach nach Saulheim fährst du rund 30 Minuten, je nach Verkehr. Vorab besprechen wir per WhatsApp, was du dir wünschst, damit dein Termin entspannt und gut vorbereitet startet.</p>
+      <h2>Das biete ich dir an</h2>
+      <h3>Bonding Extensions</h3>
+      <p>Bonding Extensions sind meine Spezialität: handgefertigt, langanhaltend und schonend für dein Haar. Sie schenken dir mehr Länge und Fülle, ganz natürlich.</p>
       <div class="feature-tags">
         <span>100% Echthaar</span>
         <span>Handgefertigt</span>
-        <span>Persönliche Beratung</span>
+        <span>Langanhaltend</span>
       </div>
       <div class="feature-cta">
         <a href="#kontakt" class="btn btn-dark">Termin buchen</a>
@@ -153,20 +184,7 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="reviews-summary reveal">
-      <p class="offer-popup-eyebrow">Neukunden-Angebot</p>
-      <h2>34% Neukundenrabatt sichern</h2>
-      <p class="reviews-score">65 cm Bonding Extensions aus 100% Echthaar, 120 Strähnchen – statt <strong>708&nbsp;€</strong> jetzt <strong>468&nbsp;€</strong>. Nur für Neukundinnen, solange das Angebot läuft.</p>
-      <div class="reviews-actions">
-        <a href="../neukundenrabatt/" class="btn btn-dark">Angebot ansehen</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="anfahrt" class="section alt">
+<section id="anfahrt" class="section">
   <div class="container">
     <h2 class="reveal">Anfahrt aus Bad Kreuznach</h2>
     <p class="ba-intro reveal">Mit dem Auto sind es rund 30 Minuten bis Saulheim, je nach Verkehr und Startpunkt. Eine Route findest du unten im Kontaktbereich. Du möchtest lieber, dass ich zu dir komme? Frag nach dem mobilen Service, dann sehen wir gemeinsam, ob es passt.</p>
@@ -180,29 +198,152 @@
   </div>
 </section>
 
+<section id="terminort" class="section alt">
+  <div class="container">
+    <h2 class="reveal">Du bestimmst den Ort</h2>
+    <p class="kontakt-intro reveal">Termin im Studio in Saulheim oder, nach vorheriger Vereinbarung, bei dir zu Hause.</p>
+
+    <div class="grid terminort-grid">
+      <div class="card reveal">
+        <span class="terminort-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M12 21s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12Z" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="9" r="2.5"/>
+          </svg>
+        </span>
+        <h3>Im Studio</h3>
+        <p>Besuche mich im Studio in Saulheim, dort nehme ich mir ganz in Ruhe Zeit für dich.</p>
+        <p class="terminort-address">Nieder-Saulheimer Str. 45, 55291 Saulheim</p>
+        <a href="https://www.google.com/maps/place/Antonietta+Hair+Extensions+Studio/@49.8667741,8.144423,17z/data=!3m1!4b1!4m6!3m5!1s0x47bd8d3e4a85d259:0x4b97d1f079949b6f!8m2!3d49.8667741!4d8.144423!16s%2Fg%2F11nvwqm_6p" class="galerie-more" target="_blank" rel="noopener">Route ansehen <span aria-hidden="true">&#8594;</span></a>
+      </div>
+
+      <div class="card reveal delay-1">
+        <div class="feature-tags terminort-badge"><span>Hausbesuche möglich</span></div>
+        <span class="terminort-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M3 11.5 12 4l9 7.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5.5 10v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h2.5a1 1 0 0 0 1-1v-9" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <h3>Mobiler Service</h3>
+        <p>Du möchtest daheim behandelt werden? Das ist nach Absprache möglich, abhängig von deinem Standort und dem Termin.</p>
+        <p class="price-note">Mobiler Service nach Vereinbarung · Verfügbarkeit abhängig von Standort und Termin.</p>
+        <a href="#kontakt" class="btn btn-dark">Termin anfragen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="galerie" class="section">
+  <div class="container">
+    <h2 class="reveal">Arbeiten aus dem Studio</h2>
+    <p class="ba-intro reveal">Eine Auswahl meiner Arbeit, außerdem ein Vorher-Nachher, das du durchklicken kannst.</p>
+    <div class="gallery-more-row">
+      <a href="https://www.instagram.com/antonietta.hairextensions?utm_source=qr" class="galerie-more" target="_blank" rel="noopener">Mehr auf Instagram <span aria-hidden="true">&#8594;</span></a>
+    </div>
+    <div class="gallery-combo">
+    <div class="ba-slider reveal" data-ba aria-roledescription="carousel" aria-label="Vorher-Nachher-Vergleich">
+      <div class="ba-track">
+        <figure class="ba-slide is-active" aria-label="Nachher">
+          <img src="../images/vorher-nachher-nachher.webp" alt="Nachher: lange, volle Bonding Extensions in warmem Blond, Rückansicht" loading="lazy">
+          <figcaption>Nachher</figcaption>
+        </figure>
+        <figure class="ba-slide" aria-label="Vorher">
+          <img src="../images/vorher-nachher-vorher.webp" alt="Vorher: schulterlanges, dünneres Haar, Rückansicht" loading="lazy">
+          <figcaption>Vorher</figcaption>
+        </figure>
+      </div>
+      <button type="button" class="ba-arrow ba-prev" aria-label="Vorheriges Bild">&#8249;</button>
+      <button type="button" class="ba-arrow ba-next" aria-label="Nächstes Bild">&#8250;</button>
+      <div class="ba-dots" role="tablist" aria-label="Bild auswählen">
+        <button type="button" class="is-active" aria-label="Nachher"></button>
+        <button type="button" aria-label="Vorher"></button>
+      </div>
+    </div>
+      <div class="gallery-grid">
+        <div class="gallery-item reveal"><img src="../images/bonding-extensions-balayage-blond.webp" alt="Lange Bonding Extensions mit Balayage-Blond, Rückansicht" loading="lazy"></div>
+        <div class="gallery-item reveal delay-1"><img src="../images/echthaar-extensions-blond-natuerlich.webp" alt="Blonde Extensions mit natürlichem Fall, Rückansicht" loading="lazy"></div>
+        <div class="gallery-item reveal delay-2"><img src="../images/lange-extensions-dunkel-karamell-straehnen.webp" alt="Lange dunkle Extensions mit karamellfarbenen Strähnen, Rückansicht" loading="lazy"></div>
+        <div class="gallery-item reveal delay-3"><img src="../images/haarverlaengerung-dunkel-locken.webp" alt="Dunkle Haarverlängerung mit Locken, Rückansicht" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ablauf" class="section alt">
+  <div class="container">
+    <h2 class="reveal">Der Ablauf</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="card-index">01</span>
+        <h3>Beratung</h3>
+        <p>Du erzählst mir, was du dir wünschst, und wir finden zusammen die passende Lösung.</p>
+      </div>
+      <div class="step reveal delay-1">
+        <span class="card-index">02</span>
+        <h3>Auswahl</h3>
+        <p>Ich passe Farbe und Struktur individuell an dein Haar an.</p>
+      </div>
+      <div class="step reveal delay-2">
+        <span class="card-index">03</span>
+        <h3>Anwendung</h3>
+        <p>Schonend und in Handarbeit arbeite ich die Extensions ein.</p>
+      </div>
+      <div class="step reveal delay-3">
+        <span class="card-index">04</span>
+        <h3>Pflege</h3>
+        <p>Ich zeige dir, wie du dein neues Haar pflegst, damit es lange schön bleibt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="faq" class="section">
   <div class="container">
     <h2 class="reveal">Häufige Fragen</h2>
     <div class="faq-list">
       <details class="faq-item reveal">
+        <summary>Wie lange halten Bonding Extensions?</summary>
+        <p>Je nach Haarstruktur und Pflege halten sie in der Regel mehrere Monate.</p>
+      </details>
+      <details class="faq-item reveal delay-1">
+        <summary>Schaden die Extensions meinem Haar?</summary>
+        <p>Bei fachgerechter Anwendung und Pflege sind sie schonend.</p>
+      </details>
+      <details class="faq-item reveal delay-2">
+        <summary>Wie viel kostet die Behandlung?</summary>
+        <p>Der Preis richtet sich nach Haarmenge und Länge, die genauen Kosten besprechen wir in einer persönlichen Beratung.</p>
+      </details>
+      <details class="faq-item reveal delay-3">
+        <summary>Wie lange dauert ein Termin?</summary>
+        <p>Rechne je nach gewünschtem Ergebnis mit ein bis mehreren Stunden.</p>
+      </details>
+      <details class="faq-item reveal delay-4">
         <summary>Wie komme ich von Bad Kreuznach zum Studio?</summary>
         <p>Mit dem Auto brauchst du je nach Verkehr rund 30 Minuten nach Saulheim, Nieder-Saulheimer Str. 45, 55291 Saulheim.</p>
       </details>
-      <details class="faq-item reveal delay-1">
+      <details class="faq-item reveal delay-5">
         <summary>Was passiert beim ersten Termin?</summary>
         <p>Wir sprechen über deine Wünsche, wählen Farbe und Struktur passend zu deinem Haar, ich arbeite die Extensions handgefertigt ein, und du bekommst Tipps zur Pflege.</p>
-      </details>
-      <details class="faq-item reveal delay-2">
-        <summary>Ist ein Termin bei mir zu Hause in Bad Kreuznach möglich?</summary>
-        <p>Nach Absprache ja. Ob ein Termin vor Ort passt, klären wir vorab per Telefon oder WhatsApp.</p>
-      </details>
-      <details class="faq-item reveal delay-3">
-        <summary>Wie viel kostet eine Behandlung?</summary>
-        <p>Der Preis richtet sich nach Haarmenge und -länge – die genauen Kosten besprechen wir in einer persönlichen Beratung.</p>
       </details>
     </div>
   </div>
 </section>
+
+<section class="section alt">
+  <div class="container">
+    <div class="reviews-summary reveal">
+      <p class="offer-popup-eyebrow">Neukunden-Angebot</p>
+      <h2>34% Neukundenrabatt sichern</h2>
+      <p class="reviews-score">65 cm Bonding Extensions aus 100% Echthaar, 120 Strähnchen – statt <strong>708&nbsp;€</strong> jetzt <strong>468&nbsp;€</strong>. Nur für Neukundinnen, solange das Angebot läuft.</p>
+      <div class="reviews-actions">
+        <a href="../neukundenrabatt/" class="btn btn-dark">Angebot ansehen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <section id="kontakt" class="section">
   <div class="container">
