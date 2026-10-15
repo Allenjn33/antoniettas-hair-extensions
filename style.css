@@ -2212,3 +2212,8 @@ body.page-loaded {
 .quick-contact-hint { position: absolute; left: 58px; top: 50%; transform: translateY(-50%); white-space: nowrap; background: var(--white); color: var(--black); font-size: 13px; padding: 7px 14px; border: 1px solid rgba(0,0,0,0.12); box-shadow: 0 4px 14px rgba(0,0,0,0.12); opacity: 0; pointer-events: none; animation: quickHint 11s ease 3s 1 forwards; }
 @keyframes quickHint { 0% { opacity: 0; transform: translate(-6px, -50%); } 8%, 85% { opacity: 1; transform: translate(0, -50%); } 100% { opacity: 0; transform: translate(0, -50%); } }
 @media (prefers-reduced-motion: reduce) { .quick-contact-hint { animation: none; opacity: 0; } }
+
+.breadcrumb { background: var(--white); border-bottom: 1px solid #ececec; font-size: 13px; padding: 10px 0; color: var(--grey); }
+.breadcrumb a { color: var(--black); text-decoration: none; }
+.breadcrumb a:hover { color: var(--gold); }
+.breadcrumb span[aria-current] { color: var(--grey); }
