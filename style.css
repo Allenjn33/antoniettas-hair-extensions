@@ -2119,13 +2119,13 @@ body.page-loaded {
 }
 @media (max-width: 480px) { .kontakt-social + .kontakt-social { margin-left: 0; display: flex; margin-top: 10px; } }
 
-.gallery-item img[src$="echthaar-extensions-blond-natuerlich.jpg"],
-.gallery-item img[src$="lange-extensions-dunkel-karamell-straehnen.jpg"] {
+.gallery-item img[src$="echthaar-extensions-blond-natuerlich.webp"],
+.gallery-item img[src$="lange-extensions-dunkel-karamell-straehnen.webp"] {
   transform: scale(1.15);
   transform-origin: center 40%;
 }
 
-.gallery-item img[src$="lange-extensions-dunkel-karamell-straehnen.jpg"] {
+.gallery-item img[src$="lange-extensions-dunkel-karamell-straehnen.webp"] {
   transform: scale(1.35);
   transform-origin: center 45%;
 }
@@ -2203,3 +2203,12 @@ body.page-loaded {
 .map-placeholder { min-height: 320px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 28px 20px; text-align: center; line-height: 1.5; background: var(--grey-light); }
 .map-placeholder p { max-width: 420px; color: var(--grey); font-size: 14px; margin: 0; }
 .map-placeholder a { font-size: 13px; color: var(--black); }
+
+.footer-areas { margin-top: 14px; font-size: 13px; color: var(--grey); line-height: 1.8; }
+.footer-areas a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.footer-areas a:hover { color: var(--gold); }
+
+.quick-contact-btn { position: relative; }
+.quick-contact-hint { position: absolute; left: 58px; top: 50%; transform: translateY(-50%); white-space: nowrap; background: var(--white); color: var(--black); font-size: 13px; padding: 7px 14px; border: 1px solid rgba(0,0,0,0.12); box-shadow: 0 4px 14px rgba(0,0,0,0.12); opacity: 0; pointer-events: none; animation: quickHint 11s ease 3s 1 forwards; }
+@keyframes quickHint { 0% { opacity: 0; transform: translate(-6px, -50%); } 8%, 85% { opacity: 1; transform: translate(0, -50%); } 100% { opacity: 0; transform: translate(0, -50%); } }
+@media (prefers-reduced-motion: reduce) { .quick-contact-hint { animation: none; opacity: 0; } }
