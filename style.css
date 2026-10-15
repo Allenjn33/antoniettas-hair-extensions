@@ -2167,3 +2167,35 @@ body.page-loaded {
   .ba-slide { transition: none; }
   .step::before, .step .card-index { transition: none !important; }
 }
+
+/* Galerie kombiniert */
+.gallery-combo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; align-items: stretch; }
+.gallery-combo .ba-slider { max-width: none; margin: 0; }
+.gallery-combo .ba-track { aspect-ratio: auto; height: 100%; min-height: 100%; }
+.gallery-combo .ba-slider { display: flex; flex-direction: column; }
+.gallery-combo .ba-track { flex: 1; min-height: 480px; }
+.gallery-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 16px; }
+.gallery-grid .gallery-item { aspect-ratio: auto; min-height: 0; }
+.ba-intro + .gallery-more-row { margin-top: -8px; }
+@media (max-width: 760px) {
+  .gallery-combo { grid-template-columns: 1fr; }
+  .gallery-combo .ba-track { min-height: 0; aspect-ratio: 2 / 3; }
+  .gallery-grid .gallery-item { aspect-ratio: 4 / 5; }
+}
+
+/* Länge anpassen */
+.feature-cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn-outline { background: transparent; color: var(--black); border: 1px solid var(--black); cursor: pointer; font: inherit; }
+.btn-outline:hover { background: var(--black); color: var(--white); }
+.length-popup { position: fixed; inset: 0; background: rgba(10,10,10,0.6); display: flex; align-items: center; justify-content: center; padding: 20px; z-index: 310; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; overflow-y: auto; }
+.length-popup.show { opacity: 1; pointer-events: auto; }
+.length-popup-inner { position: relative; background: var(--black); color: var(--white); border: 1px solid rgba(184,151,90,0.4); max-width: 420px; width: 100%; padding: 40px 32px 30px; text-align: center; margin: auto; }
+.length-popup-inner h3 { margin-bottom: 8px; }
+.length-figure { margin: 6px 0 10px; }
+.length-options { display: flex; justify-content: center; gap: 10px; margin-bottom: 14px; }
+.length-options button { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.35); padding: 9px 18px; cursor: pointer; font: inherit; font-size: 14px; letter-spacing: 0.05em; }
+.length-options button.is-active, .length-options button:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
+.length-text { color: var(--grey); font-size: 14px; margin-bottom: 16px; min-height: 42px; }
+.length-cta { background: var(--white); color: var(--black); display: inline-block; }
+.length-note { color: var(--grey); font-size: 12px; margin-top: 14px; }
+#lengthHair { transition: d 0.45s ease; }

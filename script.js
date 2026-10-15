@@ -292,3 +292,37 @@ const stepsObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.3 });
 document.querySelectorAll('.steps').forEach(el => stepsObserver.observe(el));
+
+// Länge anpassen (Pop-up)
+const lengthPopup = document.getElementById('lengthPopup');
+if (lengthPopup) {
+  const hair = document.getElementById('lengthHair');
+  const line = document.getElementById('lengthLine');
+  const label = document.getElementById('lengthLabel');
+  const text = document.getElementById('lengthText');
+  const cta = document.getElementById('lengthCta');
+  const opts = lengthPopup.querySelectorAll('[data-len]');
+  const data = {
+    40: { y: 170, t: 'Bis knapp unter die Schultern: mehr Fülle und Struktur, gut zum Einstieg.' },
+    50: { y: 202, t: 'Bis zur Brust: ein beliebter Mittelweg zwischen Länge und Alltagstauglichkeit.' },
+    65: { y: 238, t: 'Bis zur Taille: maximale Länge für einen besonders dramatischen Look.' }
+  };
+  const setLen = len => {
+    const d = data[len];
+    hair.setAttribute('d', `M88 80 Q88 22 120 22 Q152 22 152 80 L164 ${d.y} Q120 ${d.y + 12} 76 ${d.y} Z`);
+    line.setAttribute('y1', 22);
+    line.setAttribute('y2', d.y);
+    label.setAttribute('y', Math.round((22 + d.y) / 2 + 4));
+    label.textContent = len + ' cm';
+    text.textContent = d.t;
+    opts.forEach(b => b.classList.toggle('is-active', b.dataset.len === String(len)));
+    const msg = `Hallo, ich interessiere mich für Bonding Extensions in ${len} cm. Können wir einen Termin vereinbaren?`;
+    cta.href = 'https://wa.me/4917662839112?text=' + encodeURIComponent(msg);
+  };
+  opts.forEach(b => b.addEventListener('click', () => setLen(b.dataset.len)));
+  const closeLength = () => lengthPopup.classList.remove('show');
+  document.querySelectorAll('[data-open-length]').forEach(b => b.addEventListener('click', () => { setLen(50); lengthPopup.classList.add('show'); }));
+  document.getElementById('lengthClose').addEventListener('click', closeLength);
+  lengthPopup.addEventListener('click', e => { if (e.target === lengthPopup) closeLength(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLength(); });
+}

@@ -15,7 +15,7 @@
 <meta property="og:locale" content="de_DE">
 <link rel="icon" type="image/png" href="../images/favicon.png">
 <link rel="apple-touch-icon" href="../images/favicon.png">
-<link rel="stylesheet" href="../style.css?v=26">
+<link rel="stylesheet" href="../style.css?v=28">
 <noscript><style>body{opacity:1}</style></noscript>
 <script type="application/ld+json">
 {
@@ -142,7 +142,10 @@
         <span>Handgefertigt</span>
         <span>Nach Vereinbarung</span>
       </div>
-      <a href="#kontakt" class="btn btn-dark">Termin anfragen</a>
+      <div class="feature-cta">
+        <a href="#kontakt" class="btn btn-dark">Termin anfragen</a>
+        <button type="button" class="btn btn-outline" data-open-length>Länge anpassen</button>
+      </div>
       <p class="price-note">Preis auf Anfrage – abhängig von Haarmenge, Länge und Anfahrt</p>
     </div>
     <div class="feature-photo reveal delay-1">
@@ -381,6 +384,31 @@
 </div>
 
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-<script src="../script.js?v=15"></script>
+<div class="length-popup" id="lengthPopup" role="dialog" aria-modal="true" aria-labelledby="lengthTitle">
+  <div class="length-popup-inner">
+    <button type="button" class="offer-popup-close" id="lengthClose" aria-label="Schließen">&times;</button>
+    <p class="offer-popup-eyebrow">Bonding Extensions</p>
+    <h3 id="lengthTitle">Welche Länge passt zu dir?</h3>
+    <div class="length-figure">
+      <svg viewBox="0 0 260 250" width="220" height="212" role="img" aria-label="Silhouette mit gewählter Haarlänge">
+        <path d="M44 248 Q44 160 120 160 Q196 160 196 248 Z" fill="#2a2a2a" stroke="rgba(184,151,90,0.6)" stroke-width="1"/>
+        <rect x="108" y="128" width="24" height="36" fill="#2a2a2a"/>
+        <path id="lengthHair" d="" fill="#B8975A" fill-opacity="0.93"/>
+        <line id="lengthLine" x1="206" y1="40" x2="206" y2="200" stroke="rgba(255,255,255,0.45)" stroke-dasharray="3 3"/>
+        <text id="lengthLabel" x="212" y="140" font-size="13" fill="#fff" text-anchor="start"></text>
+      </svg>
+    </div>
+    <div class="length-options" role="group" aria-label="Länge wählen">
+      <button type="button" data-len="40">40 cm</button>
+      <button type="button" data-len="50" class="is-active">50 cm</button>
+      <button type="button" data-len="65">65 cm</button>
+    </div>
+    <p class="length-text" id="lengthText"></p>
+    <a href="#" class="btn btn-dark length-cta" id="lengthCta" target="_blank" rel="noopener">Diese Länge per WhatsApp anfragen</a>
+    <p class="length-note">Die Wirkung hängt von deiner Körpergröße und Haarstruktur ab. Das Beste besprechen wir persönlich.</p>
+  </div>
+</div>
+
+<script src="../script.js?v=19"></script>
 </body>
 </html>
