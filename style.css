@@ -2199,3 +2199,7 @@ body.page-loaded {
 .length-cta { background: var(--white); color: var(--black); display: inline-block; }
 .length-note { color: var(--grey); font-size: 12px; margin-top: 14px; }
 #lengthHair { transition: d 0.45s ease; }
+
+.map-placeholder { min-height: 320px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 28px 20px; text-align: center; line-height: 1.5; background: var(--grey-light); }
+.map-placeholder p { max-width: 420px; color: var(--grey); font-size: 14px; margin: 0; }
+.map-placeholder a { font-size: 13px; color: var(--black); }

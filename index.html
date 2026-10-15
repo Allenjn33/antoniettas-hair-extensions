@@ -18,7 +18,7 @@
      <meta name="google-site-verification" content="DEIN-CODE-VON-GOOGLE"> -->
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/favicon.png">
-<link rel="stylesheet" href="style.css?v=28">
+<link rel="stylesheet" href="style.css?v=29">
 <noscript><style>body{opacity:1}</style></noscript>
 <script type="application/ld+json">
 {
@@ -374,12 +374,12 @@
         <a href="https://www.google.com/maps/place/Antonietta+Hair+Extensions+Studio/@49.8667741,8.144423,17z/data=!3m1!4b1!4m6!3m5!1s0x47bd8d3e4a85d259:0x4b97d1f079949b6f!8m2!3d49.8667741!4d8.144423!16s%2Fg%2F11nvwqm_6p" class="btn" target="_blank" rel="noopener">Bewertung abgeben</a>
       </div>
     </div>
-    <div class="map-embed reveal delay-1">
-      <iframe
-        src="https://www.google.com/maps?q=Antonietta+Hair+Extensions+Studio,+Nieder-Saulheimer+Str.+45,+55291+Saulheim&output=embed"
-        width="100%" height="320" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        title="Standort Antonietta Hair Extensions Studio auf Google Maps">
-      </iframe>
+    <div class="map-embed reveal delay-1" id="mapEmbed" data-map-src="https://www.google.com/maps?q=Antonietta+Hair+Extensions+Studio,+Nieder-Saulheimer+Str.+45,+55291+Saulheim&amp;output=embed">
+      <div class="map-placeholder">
+        <p>Die Karte wird von Google Maps geladen. Dabei werden Daten an Google übertragen.</p>
+        <button type="button" class="btn btn-dark" id="mapLoad">Karte laden</button>
+        <a href="https://www.google.com/maps/place/Antonietta+Hair+Extensions+Studio/@49.8667741,8.144423,17z/data=!3m1!4b1!4m6!3m5!1s0x47bd8d3e4a85d259:0x4b97d1f079949b6f!8m2!3d49.8667741!4d8.144423!16s%2Fg%2F11nvwqm_6p" target="_blank" rel="noopener">Route auf Google Maps öffnen</a>
+      </div>
     </div>
   </div>
 </section>
@@ -440,7 +440,7 @@
 
 <div class="cookie-consent" id="cookieConsent">
   <div class="cookie-consent-inner">
-    <p class="cookie-consent-text">Wir nutzen Google Analytics, um zu verstehen, wie unsere Website genutzt wird. Das setzt Cookies, die nur mit deiner Zustimmung aktiviert werden. Mehr dazu in unserer <a href="datenschutz/">Datenschutzerklärung</a>.</p>
+    <p class="cookie-consent-text">Wir nutzen Google Analytics, Google Ads und Google Maps, um zu verstehen, wie unsere Website genutzt wird, und um die Karte anzuzeigen. Das setzt Cookies und überträgt Daten an Google, aber nur mit deiner Zustimmung. Mehr dazu in unserer <a href="datenschutz/">Datenschutzerklärung</a>.</p>
     <div class="cookie-consent-buttons">
       <button type="button" class="btn cookie-btn-decline" id="cookieDecline">Ablehnen</button>
       <button type="button" class="btn btn-dark" id="cookieAccept">Akzeptieren</button>
@@ -486,6 +486,6 @@
   </div>
 </div>
 
-<script src="script.js?v=19"></script>
+<script src="script.js?v=20"></script>
 </body>
 </html>

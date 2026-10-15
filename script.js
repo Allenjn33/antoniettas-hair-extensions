@@ -28,6 +28,22 @@ function loadGoogleAnalytics() {
   gtag('config', GOOGLE_ADS_ID);
 }
 
+function loadMap() {
+  const box = document.getElementById('mapEmbed');
+  if (!box || box.querySelector('iframe')) return;
+  const frame = document.createElement('iframe');
+  frame.src = box.dataset.mapSrc;
+  frame.width = '100%';
+  frame.height = '320';
+  frame.style.border = '0';
+  frame.allowFullscreen = true;
+  frame.referrerPolicy = 'no-referrer-when-downgrade';
+  frame.title = 'Standort Antonietta Hair Extensions Studio auf Google Maps';
+  box.replaceChildren(frame);
+}
+const mapLoadBtn = document.getElementById('mapLoad');
+if (mapLoadBtn) mapLoadBtn.addEventListener('click', loadMap);
+
 const cookieConsent = document.getElementById('cookieConsent');
 const cookieAccept = document.getElementById('cookieAccept');
 const cookieDecline = document.getElementById('cookieDecline');
@@ -60,6 +76,7 @@ if (offerPopupDismiss) offerPopupDismiss.addEventListener('click', closeOfferPop
 
 if (consentChoice === 'accepted') {
   loadGoogleAnalytics();
+  loadMap();
   maybeShowOfferPopup();
 } else if (!consentChoice && cookieConsent) {
   cookieConsent.classList.add('show');
@@ -72,6 +89,7 @@ if (cookieAccept) {
     localStorage.setItem('cookieConsent', 'accepted');
     cookieConsent.classList.remove('show');
     loadGoogleAnalytics();
+    loadMap();
     maybeShowOfferPopup();
   });
 }
