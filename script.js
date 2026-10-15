@@ -49,21 +49,23 @@ const cookieAccept = document.getElementById('cookieAccept');
 const cookieDecline = document.getElementById('cookieDecline');
 const consentChoice = localStorage.getItem('cookieConsent');
 
-// Neukundenrabatt-Popup: erscheint einmal, nachdem der Besucher die Cookie-Entscheidung
-// getroffen hat (akzeptiert oder abgelehnt), höchstens alle 14 Tage erneut.
+// Neukundenrabatt-Popup: erscheint nach der Cookie-Entscheidung. Nur bei Zustimmung wird gemerkt,
+// wann es zuletzt gezeigt wurde (höchstens alle 14 Tage). Bei Ablehnung wird nichts gespeichert.
 const offerPopup = document.getElementById('offerPopup');
 const offerPopupClose = document.getElementById('offerPopupClose');
 const offerPopupDismiss = document.getElementById('offerPopupDismiss');
 const OFFER_POPUP_INTERVAL_DAYS = 14;
 
-function maybeShowOfferPopup() {
+function maybeShowOfferPopup(persist) {
   if (!offerPopup) return;
-  const lastShown = localStorage.getItem('offerPopupShown');
-  const daysSince = lastShown ? (Date.now() - Number(lastShown)) / 86400000 : Infinity;
-  if (daysSince < OFFER_POPUP_INTERVAL_DAYS) return;
+  if (persist) {
+    const lastShown = localStorage.getItem('offerPopupShown');
+    const daysSince = lastShown ? (Date.now() - Number(lastShown)) / 86400000 : Infinity;
+    if (daysSince < OFFER_POPUP_INTERVAL_DAYS) return;
+  }
   setTimeout(() => {
     offerPopup.classList.add('show');
-    localStorage.setItem('offerPopupShown', String(Date.now()));
+    if (persist) localStorage.setItem('offerPopupShown', String(Date.now()));
   }, 600);
 }
 
@@ -77,11 +79,11 @@ if (offerPopupDismiss) offerPopupDismiss.addEventListener('click', closeOfferPop
 if (consentChoice === 'accepted') {
   loadGoogleAnalytics();
   loadMap();
-  maybeShowOfferPopup();
+  maybeShowOfferPopup(true);
 } else if (!consentChoice && cookieConsent) {
   cookieConsent.classList.add('show');
 } else if (consentChoice === 'declined') {
-  maybeShowOfferPopup();
+  localStorage.removeItem('offerPopupShown');
 }
 
 if (cookieAccept) {
@@ -90,7 +92,7 @@ if (cookieAccept) {
     cookieConsent.classList.remove('show');
     loadGoogleAnalytics();
     loadMap();
-    maybeShowOfferPopup();
+    maybeShowOfferPopup(true);
   });
 }
 
@@ -114,7 +116,8 @@ if (cookieDecline) {
     localStorage.setItem('cookieConsent', 'declined');
     cookieConsent.classList.remove('show');
     if (wasAccepted) revokeGoogleAnalytics();
-    maybeShowOfferPopup();
+    localStorage.removeItem('offerPopupShown');
+    maybeShowOfferPopup(false);
   });
 }
 
