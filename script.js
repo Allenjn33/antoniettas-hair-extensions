@@ -248,3 +248,47 @@ if (navLinks.length && spySections.length) {
   spySections.forEach(section => spyObserver.observe(section));
 }
 
+
+// Vorher/Nachher-Slider
+document.querySelectorAll('[data-ba]').forEach(root => {
+  const slides = root.querySelectorAll('.ba-slide');
+  const dots = root.querySelectorAll('.ba-dots button');
+  let i = 0, timer = null;
+  const show = n => {
+    i = (n + slides.length) % slides.length;
+    slides.forEach((s, k) => s.classList.toggle('is-active', k === i));
+    dots.forEach((d, k) => d.classList.toggle('is-active', k === i));
+  };
+  const stop = () => { clearInterval(timer); timer = null; };
+  const start = () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    stop();
+    timer = setInterval(() => show(i + 1), 4500);
+  };
+  root.querySelector('.ba-prev').addEventListener('click', () => { show(i - 1); start(); });
+  root.querySelector('.ba-next').addEventListener('click', () => { show(i + 1); start(); });
+  dots.forEach((d, k) => d.addEventListener('click', () => { show(k); start(); }));
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  let x0 = null;
+  root.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; stop(); }, { passive: true });
+  root.addEventListener('touchend', e => {
+    if (x0 !== null) {
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1));
+    }
+    x0 = null; start();
+  });
+  start();
+});
+
+// Ablauf-Animation
+const stepsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('steps-visible');
+      stepsObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.steps').forEach(el => stepsObserver.observe(el));
