@@ -675,7 +675,7 @@ h1, h2, h3 {
 }
 
 .feature-photo-img.img-leistungen {
-  object-position: 65% center;
+  object-position: center center;
 }
 
 .feature-text h2 {
