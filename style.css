@@ -2273,3 +2273,13 @@ body.page-loaded {
 .premium-badge span { border: 1px solid var(--gold); color: var(--gold); padding: 5px 14px; border-radius: 99px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
 .price-sub { text-align: center; margin: 56px 0 8px; font-size: 26px; }
 @media (max-width: 700px) { .price-sub { font-size: 22px; margin-top: 40px; } }
+
+/* Gutschein */
+.gift-card { max-width: 620px; margin: 8px auto 28px; padding: 44px 36px; text-align: center; background: linear-gradient(135deg, #111, #1d1a14); border: 1px solid var(--gold); box-shadow: 0 24px 60px rgba(0,0,0,.28); position: relative; }
+.gift-card::before { content: ""; position: absolute; inset: 10px; border: 1px solid rgba(184,151,90,.5); pointer-events: none; }
+.gift-eyebrow { font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+.gift-title { font-family: 'Georgia', serif; font-size: 52px; letter-spacing: .16em; color: var(--white); margin-bottom: 14px; }
+.gift-amount { font-size: 22px; color: #ddd; margin-bottom: 14px; }
+.gift-amount span { font-family: 'Georgia', serif; font-size: 34px; color: var(--gold); letter-spacing: .1em; margin-left: 8px; }
+.gift-note { font-size: 13px; letter-spacing: .06em; color: #aaa; }
+@media (max-width: 600px) { .gift-card { padding: 34px 20px; } .gift-title { font-size: 36px; } }
