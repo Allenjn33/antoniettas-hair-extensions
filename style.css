@@ -2265,3 +2265,11 @@ body.page-loaded {
 .price-table td .price-old, .price-table td .price-new { display: inline; margin: 0; }
 .price-table td .price-old { font-size: 14px; margin-right: 12px; }
 .price-table td .price-new { font-size: 19px; }
+
+/* Preise: Stern, Premium, Beispieltabellen */
+.price-star { font-size: 0.7em; vertical-align: super; margin-left: 2px; line-height: 0; }
+.price-table td .price-new { position: relative; }
+.premium-badge { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 auto 18px; }
+.premium-badge span { border: 1px solid var(--gold); color: var(--gold); padding: 5px 14px; border-radius: 99px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+.price-sub { text-align: center; margin: 56px 0 8px; font-size: 26px; }
+@media (max-width: 700px) { .price-sub { font-size: 22px; margin-top: 40px; } }
