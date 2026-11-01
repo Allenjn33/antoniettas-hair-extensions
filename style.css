@@ -127,7 +127,7 @@ h1, h2, h3 {
   transform: rotate(-45deg) translateY(-10px);
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1040px) {
   .menu-toggle {
     display: flex;
     flex-shrink: 0;
@@ -2298,3 +2298,25 @@ body.page-loaded {
 .gift-banner.hidden { display: none; }
 @media (max-width: 640px) { .gift-banner .gb-sub { display: none; } .gift-banner a { font-size: 13px; gap: 8px; } }
 .nav-new { display: inline-block; margin-left: 6px; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; background: var(--gold); color: #fff; padding: 2px 6px; border-radius: 99px; vertical-align: middle; position: relative; top: -1px; }
+
+/* Kopfzeile: Logo weiter links, Menü kompakter */
+.site-header .container.header-inner { max-width: 1360px; padding: 0 32px; flex-wrap: nowrap; }
+.site-header .logo { flex: 0 0 auto; }
+.site-header .nav { flex: 0 0 auto; white-space: nowrap; }
+@media (min-width: 1041px) and (max-width: 1240px) {
+  .nav a { margin-left: 22px; font-size: 13px; letter-spacing: .6px; }
+  .site-header .container.header-inner { padding: 0 22px; }
+}
+.nav-gift { font-weight: 600; }
+
+/* Gutschein-Banner größer */
+.gift-banner a { padding: 15px 52px 15px 18px; font-size: 18px; gap: 14px; }
+.gift-banner a svg { width: 26px; height: 26px; flex: none; }
+.gift-banner strong { font-size: 19px; letter-spacing: .01em; }
+.gift-banner .gb-go { background: #111; color: var(--gold2, #e9d29b); padding: 7px 16px; border-radius: 99px; font-size: 14px; letter-spacing: .04em; }
+.gift-banner a:hover .gb-go { text-decoration: none; background: #000; }
+@media (max-width: 640px) {
+  .gift-banner a { padding: 12px 44px 12px 14px; font-size: 14.5px; gap: 8px; }
+  .gift-banner strong { font-size: 15px; }
+  .gift-banner .gb-go { padding: 5px 12px; font-size: 12px; }
+}
