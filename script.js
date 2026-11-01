@@ -359,3 +359,12 @@ if (lengthPopup) {
     }
   });
 })();
+
+// Gutschein-Banner: per Klick schließen (ohne Speicherung), nach Weihnachten automatisch ausblenden
+(function giftBanner() {
+  const b = document.getElementById('giftBanner');
+  if (!b) return;
+  if (Date.now() > new Date('2027-01-07T00:00:00').getTime()) { b.classList.add('hidden'); return; }
+  const x = document.getElementById('giftBannerClose');
+  if (x) x.addEventListener('click', () => b.classList.add('hidden'));
+})();
