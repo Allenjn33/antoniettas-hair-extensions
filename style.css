@@ -2260,3 +2260,8 @@ body.page-loaded {
   .price-table td .price-old { font-size: 13px; }
   .price-table td .price-new { font-size: 16px; }
 }
+
+/* Preistabelle: zwei Spalten, Preise nebeneinander */
+.price-table td .price-old, .price-table td .price-new { display: inline; margin: 0; }
+.price-table td .price-old { font-size: 14px; margin-right: 12px; }
+.price-table td .price-new { font-size: 19px; }
