@@ -2336,3 +2336,10 @@ body.page-loaded {
 .legal a { color: var(--black); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; word-break: break-word; transition: color 0.2s; }
 .legal a:hover { color: var(--gold); }
 .nav-shop { font-weight: 600; }
+
+/* Menü: Abschnitte der Seite | andere Seiten (Preise, Gutschein, Shop) */
+.nav-sep { display: inline-block; width: 1px; height: 20px; background: var(--gold); opacity: .7; margin: 0 0 0 28px; vertical-align: middle; }
+.nav a.nav-gift, .nav a.nav-shop { font-weight: 600; }
+@media (max-width: 1040px) {
+  .nav-sep { display: block; width: 100%; height: 1px; margin: 0; background: rgba(184,151,90,.55); opacity: 1; }
+}
