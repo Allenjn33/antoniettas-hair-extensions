@@ -2320,3 +2320,7 @@ body.page-loaded {
   .gift-banner strong { font-size: 15px; }
   .gift-banner .gb-go { padding: 5px 12px; font-size: 12px; }
 }
+
+.gift-img { max-width: 860px; margin: 8px auto 12px; }
+.gift-img img { display: block; width: 100%; height: auto; box-shadow: 0 24px 60px rgba(0,0,0,.28); }
+.gift-img figcaption { text-align: center; font-size: 13px; color: var(--grey); margin-top: 12px; }
