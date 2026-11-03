@@ -385,13 +385,13 @@ if (lengthPopup) {
 })();
 
 
-// Link zum Shop: Seite gleitet nach links weg, der Shop kommt von rechts herein
+// Link zum Shop: nur der Text gleitet nach rechts weg (in Pfeilrichtung), dann öffnet sich der Shop
 document.querySelectorAll('.shop-link').forEach((a) => {
   a.addEventListener('click', (e) => {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     e.preventDefault();
-    document.documentElement.classList.add('slide-out-links');
-    setTimeout(() => { window.location.href = a.href; }, 320);
+    a.classList.add('go');
+    setTimeout(() => { window.location.href = a.href; }, 280);
   });
 });
