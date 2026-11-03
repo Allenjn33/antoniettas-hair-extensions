@@ -383,3 +383,15 @@ if (lengthPopup) {
   const x = document.getElementById('giftBannerClose');
   if (x) x.addEventListener('click', () => b.classList.add('hidden'));
 })();
+
+
+// Link zum Shop: Seite gleitet nach links weg, der Shop kommt von rechts herein
+document.querySelectorAll('.shop-link').forEach((a) => {
+  a.addEventListener('click', (e) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    e.preventDefault();
+    document.documentElement.classList.add('slide-out-links');
+    setTimeout(() => { window.location.href = a.href; }, 320);
+  });
+});
