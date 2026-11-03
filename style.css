@@ -2358,3 +2358,8 @@ body.page-loaded {
 .shop-link:hover span { transform: translateX(4px); }
 .shop-link.go { transform: translateX(28px); opacity: 0; }
 @media (prefers-reduced-motion: reduce) { .shop-link, .shop-link span { transition: none; } .shop-link.go { transform: none; opacity: 1; } }
+
+.logo-wrap { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.logo-flame { flex: 0 0 auto; display: block; line-height: 0; margin: -6px 0; }
+.logo-flame img { height: 56px; width: auto; display: block; }
+@media (max-width: 900px) { .logo-wrap { gap: 8px; } .logo-flame img { height: 40px; } }
