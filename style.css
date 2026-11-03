@@ -2343,3 +2343,11 @@ body.page-loaded {
 @media (max-width: 1040px) {
   .nav-sep { display: block; width: 100%; height: 1px; margin: 0; background: rgba(184,151,90,.55); opacity: 1; }
 }
+
+/* Link zum Shop unter dem Logo */
+.logo-stack { display: flex; flex-direction: column; gap: 5px; }
+.shop-link { font-size: 10.5px; letter-spacing: 1.8px; text-transform: uppercase; color: #777; text-decoration: none; white-space: nowrap; line-height: 1; transition: color .2s; }
+.shop-link:hover { color: var(--gold); }
+.site-header.scrolled .shop-link { color: rgba(255,255,255,.62); }
+.site-header.scrolled .shop-link:hover { color: var(--gold); }
+@media (max-width: 900px) { .shop-link { display: none; } }
