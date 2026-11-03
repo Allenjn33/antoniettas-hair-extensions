@@ -47,6 +47,19 @@ if (mapLoadBtn) mapLoadBtn.addEventListener('click', loadMap);
 const cookieConsent = document.getElementById('cookieConsent');
 const cookieAccept = document.getElementById('cookieAccept');
 const cookieDecline = document.getElementById('cookieDecline');
+// Die Auswahl gilt auch für den Shop (shop.antonietta-hairextensions.de): zusätzlich zum lokalen Speicher
+// wird sie in einem Cookie für die gesamte Domain abgelegt, damit der Shop nicht noch einmal fragt.
+const SHARED_CONSENT_DOMAIN = 'antonietta-hairextensions.de';
+function setSharedConsent(value) {
+  if (!location.hostname.endsWith(SHARED_CONSENT_DOMAIN)) return;
+  document.cookie = `cookieConsent=${value}; domain=.${SHARED_CONSENT_DOMAIN}; path=/; max-age=31536000; SameSite=Lax; Secure`;
+}
+function readSharedConsent() {
+  const m = document.cookie.match(/(?:^|; )cookieConsent=(accepted|declined)/);
+  return m ? m[1] : null;
+}
+if (!localStorage.getItem('cookieConsent') && readSharedConsent()) localStorage.setItem('cookieConsent', readSharedConsent());
+else if (localStorage.getItem('cookieConsent') && !readSharedConsent()) setSharedConsent(localStorage.getItem('cookieConsent'));
 const consentChoice = localStorage.getItem('cookieConsent');
 
 // Neukundenrabatt-Popup: erscheint nach der Cookie-Entscheidung. Nur bei Zustimmung wird gemerkt,
@@ -89,6 +102,7 @@ if (consentChoice === 'accepted') {
 if (cookieAccept) {
   cookieAccept.addEventListener('click', () => {
     localStorage.setItem('cookieConsent', 'accepted');
+    setSharedConsent('accepted');
     cookieConsent.classList.remove('show');
     loadGoogleAnalytics();
     loadMap();
@@ -114,6 +128,7 @@ if (cookieDecline) {
   cookieDecline.addEventListener('click', () => {
     const wasAccepted = localStorage.getItem('cookieConsent') === 'accepted';
     localStorage.setItem('cookieConsent', 'declined');
+    setSharedConsent('declined');
     cookieConsent.classList.remove('show');
     if (wasAccepted) revokeGoogleAnalytics();
     localStorage.removeItem('offerPopupShown');
