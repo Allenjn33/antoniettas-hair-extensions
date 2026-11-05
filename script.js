@@ -28,6 +28,16 @@ function loadGoogleAnalytics() {
   gtag('config', GOOGLE_ADS_ID);
 }
 
+// Google Ads Conversion: zählt Klicks auf Anrufen, WhatsApp und E-Mail. window.gtag gibt es nur nach "Akzeptieren",
+// ohne Einwilligung wird also nichts gesendet.
+const GOOGLE_ADS_CONVERSION = `${GOOGLE_ADS_ID}/RglCCJCuoJUdELmLntdE`;
+document.addEventListener('click', (e) => {
+  const link = e.target.closest && e.target.closest('a[href^="tel:"], a[href*="wa.me/"], a[href^="mailto:"]');
+  if (link && window.gtag && localStorage.getItem('cookieConsent') === 'accepted') {
+    window.gtag('event', 'conversion', { send_to: GOOGLE_ADS_CONVERSION });
+  }
+});
+
 function loadMap() {
   const box = document.getElementById('mapEmbed');
   if (!box || box.querySelector('iframe')) return;
