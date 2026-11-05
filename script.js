@@ -23,6 +23,7 @@ function loadGoogleAnalytics() {
   window.dataLayer = window.dataLayer || [];
   function gtag() { window.dataLayer.push(arguments); }
   window.gtag = gtag;
+  gtag('consent', 'default', { ad_storage: 'granted', analytics_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'denied' });
   gtag('js', new Date());
   gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
   gtag('config', GOOGLE_ADS_ID);
