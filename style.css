@@ -2363,3 +2363,7 @@ body.page-loaded {
 .logo-flame { flex: 0 0 auto; display: block; line-height: 0; margin: -6px 0; }
 .logo-flame img { height: 56px; width: auto; display: block; }
 @media (max-width: 900px) { .logo-wrap { gap: 8px; } .logo-flame img { height: 40px; } }
+
+.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.btn.btn-shop { background: transparent; color: #fff; border: 1px solid #b8975a; }
+.btn.btn-shop:hover { background: #b8975a; color: #fff; }
