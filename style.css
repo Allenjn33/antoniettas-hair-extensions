@@ -2384,3 +2384,19 @@ body.page-loaded {
 .booking-fast { max-width: 860px; margin: 28px auto 0; text-align: center; color: #444; }
 .booking-fast p + p { margin-top: 12px; }
 @media (max-width: 760px) { .booking-opts { grid-template-columns: 1fr; } .booking-card { padding: 18px; } .booking-frame iframe { height: 840px; } }
+
+/* Vorher-Nachher-Schieber */
+.ba-compare { position: relative; width: 100%; max-width: 440px; margin: 0 auto; aspect-ratio: 2 / 3; overflow: hidden; background: #111; box-shadow: 0 14px 40px rgba(0,0,0,0.18); touch-action: pan-y; user-select: none; --pos: 50%; }
+.gallery-combo .ba-compare { max-width: none; margin: 0; height: 100%; aspect-ratio: auto; min-height: 440px; }
+.ba-compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.ba-compare .ba-before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.ba-handle { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,.45); pointer-events: none; }
+.ba-handle span { position: absolute; top: 50%; left: 50%; width: 52px; height: 52px; margin: -26px 0 0 -26px; border-radius: 50%; background: var(--gold); border: 2px solid #fff; display: flex; align-items: center; justify-content: center; gap: 2px; color: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.35); }
+.ba-handle i { font-style: normal; font-size: 22px; line-height: 1; margin-top: -2px; }
+.ba-tag { position: absolute; top: 16px; padding: 7px 14px; background: rgba(0,0,0,.55); color: #fff; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; pointer-events: none; }
+.ba-tag-before { left: 16px; } .ba-tag-after { right: 16px; }
+.ba-compare input[type=range] { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; -webkit-appearance: none; appearance: none; }
+.ba-compare input[type=range]:focus-visible ~ .ba-handle span { outline: 3px solid #fff; outline-offset: 3px; }
+.ba-hint { position: absolute; left: 0; right: 0; bottom: 18px; text-align: center; color: #fff; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; text-shadow: 0 1px 8px rgba(0,0,0,.7); pointer-events: none; transition: opacity .4s; }
+.ba-compare.is-touched .ba-hint { opacity: 0; }
+@media (max-width: 900px) { .gallery-combo .ba-compare { aspect-ratio: 2 / 3; height: auto; min-height: 0; max-width: 440px; margin: 0 auto; } }

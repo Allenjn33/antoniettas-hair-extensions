@@ -19,7 +19,7 @@
      <meta name="google-site-verification" content="DEIN-CODE-VON-GOOGLE"> -->
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/favicon.png">
-<link rel="stylesheet" href="style.css?v=52">
+<link rel="stylesheet" href="style.css?v=54">
 <noscript><style>body{opacity:1}</style></noscript>
 <script type="application/ld+json">
 {
@@ -292,23 +292,14 @@
       <a href="https://www.instagram.com/antonietta.hairextensions?utm_source=qr" class="galerie-more" target="_blank" rel="noopener">Mehr <span aria-hidden="true">&#8594;</span></a>
     </div>
     <div class="gallery-combo">
-    <div class="ba-slider reveal" data-ba aria-roledescription="carousel" aria-label="Vorher-Nachher-Vergleich">
-      <div class="ba-track">
-        <figure class="ba-slide is-active" aria-label="Nachher">
-          <img src="images/vorher-nachher-nachher.webp" alt="Nachher: lange, volle Bonding Extensions in warmem Blond, Rückansicht" loading="lazy">
-          <figcaption>Nachher</figcaption>
-        </figure>
-        <figure class="ba-slide" aria-label="Vorher">
-          <img src="images/vorher-nachher-vorher.webp" alt="Vorher: schulterlanges, dünneres Haar, Rückansicht" loading="lazy">
-          <figcaption>Vorher</figcaption>
-        </figure>
-      </div>
-      <button type="button" class="ba-arrow ba-prev" aria-label="Vorheriges Bild">&#8249;</button>
-      <button type="button" class="ba-arrow ba-next" aria-label="Nächstes Bild">&#8250;</button>
-      <div class="ba-dots" role="tablist" aria-label="Bild auswählen">
-        <button type="button" class="is-active" aria-label="Nachher"></button>
-        <button type="button" aria-label="Vorher"></button>
-      </div>
+    <div class="ba-compare reveal" data-compare style="--pos:50%" role="group" aria-label="Vorher-Nachher-Vergleich: Regler nach links oder rechts schieben">
+      <img class="ba-after" src="images/vorher-nachher-nachher.webp" alt="Nachher: lange, volle Bonding Extensions in warmem Blond, Rückansicht" loading="lazy">
+      <img class="ba-before" src="images/vorher-nachher-vorher.webp" alt="Vorher: schulterlanges, dünneres Haar, Rückansicht" loading="lazy">
+      <span class="ba-tag ba-tag-before">Vorher</span>
+      <span class="ba-tag ba-tag-after">Nachher</span>
+      <div class="ba-handle" aria-hidden="true"><span><i>&#8249;</i><i>&#8250;</i></span></div>
+      <input type="range" min="0" max="100" value="50" step="0.5" aria-label="Regler: Vorher und Nachher vergleichen">
+      <p class="ba-hint" aria-hidden="true">Zum Vergleichen ziehen</p>
     </div>
       <div class="gallery-grid">
       <div class="gallery-item reveal"><img src="images/bonding-extensions-balayage-blond.webp" alt="Lange Bonding Extensions mit Balayage-Blond, Rückansicht" loading="lazy"></div>
@@ -512,6 +503,6 @@
   </div>
 </div>
 
-<script src="script.js?v=29"></script>
+<script src="script.js?v=30"></script>
 </body>
 </html>

@@ -407,3 +407,27 @@ document.querySelectorAll('.shop-link').forEach((a) => {
     setTimeout(() => { window.location.href = a.href; }, 280);
   });
 });
+
+
+// Vorher-Nachher-Schieber: Regler zieht die Trennlinie, nach dem Einblenden wackelt er einmal kurz als Hinweis
+document.querySelectorAll('[data-compare]').forEach((box) => {
+  const range = box.querySelector('input[type=range]');
+  if (!range) return;
+  const set = (v) => box.style.setProperty('--pos', v + '%');
+  range.addEventListener('input', () => { set(range.value); box.classList.add('is-touched'); });
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver((entries) => {
+    if (!entries[0].isIntersecting) return;
+    io.disconnect();
+    let t0 = null;
+    const step = (t) => {
+      if (box.classList.contains('is-touched')) return;
+      t0 = t0 || t; const p = (t - t0) / 1400;
+      if (p >= 1) { set(50); return; }
+      set(50 + Math.sin(p * Math.PI * 2) * 22 * (1 - p));
+      requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, { threshold: 0.6 });
+  io.observe(box);
+});
