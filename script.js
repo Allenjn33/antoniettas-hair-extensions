@@ -351,7 +351,6 @@ if (lengthPopup) {
   const cta = document.getElementById('lengthCta');
   const opts = lengthPopup.querySelectorAll('[data-len]');
   const data = {
-    40: { y: 170, t: 'Bis knapp unter die Schultern: mehr Fülle und Struktur, gut zum Einstieg.' },
     50: { y: 202, t: 'Bis zur Brust: ein beliebter Mittelweg zwischen Länge und Alltagstauglichkeit.' },
     65: { y: 238, t: 'Bis zur Taille: maximale Länge für einen besonders dramatischen Look.' }
   };
