@@ -2410,7 +2410,7 @@ body.page-loaded {
 .local-block p { color: #444; font-size: 15px; line-height: 1.7; }
 @media (max-width: 900px) { .local-blocks { grid-template-columns: 1fr; } }
 .orte-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin-top: 24px; }
-.orte-grid a { display: block; border: 1px solid #e5e5e5; background: #fff; padding: 18px 20px; text-decoration: none; transition: border-color .2s, transform .2s; }
+.orte-grid a { display: block; color: inherit; border: 1px solid #e5e5e5; background: #fff; padding: 18px 20px; text-decoration: none; transition: border-color .2s, transform .2s; }
 .orte-grid a:hover { border-color: var(--gold); transform: translateY(-2px); }
-.orte-grid strong { display: block; font-family: Georgia, serif; font-weight: 400; font-size: 19px; }
+.orte-grid strong { display: block; font-family: Georgia, serif; font-weight: 400; font-size: 19px; color: #0a0a0a; }
 .orte-grid span { color: var(--grey); font-size: 14px; }
