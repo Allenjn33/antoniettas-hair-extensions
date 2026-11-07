@@ -2368,7 +2368,7 @@ body.page-loaded {
 .btn.btn-shop { background: transparent; color: #fff; border: 1px solid #b8975a; }
 .btn.btn-shop:hover { background: #b8975a; color: #fff; }
 
-/* Terminbuchung (Cal.com eingebettet, wird erst nach Klick geladen) */
+/* Terminbuchung (Setmore eingebettet, wird erst nach Klick geladen) */
 .booking-section { padding-top: 40px; }
 .booking-lead { max-width: 640px; margin: 14px auto 32px; text-align: center; color: #555; }
 .booking-card { max-width: 860px; margin: 0 auto; background: #fff; border: 1px solid #e5e5e5; border-top: 3px solid var(--gold); padding: 28px; }
