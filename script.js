@@ -82,6 +82,7 @@ const OFFER_POPUP_INTERVAL_DAYS = 14;
 
 function maybeShowOfferPopup(persist) {
   if (!offerPopup) return;
+  if (location.pathname.indexOf("/termin") === 0) return; // auf der Buchungsseite nicht stören
   if (persist) {
     const lastShown = localStorage.getItem('offerPopupShown');
     const daysSince = lastShown ? (Date.now() - Number(lastShown)) / 86400000 : Infinity;
