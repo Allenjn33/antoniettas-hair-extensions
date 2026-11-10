@@ -2414,3 +2414,6 @@ body.page-loaded {
 .orte-grid a:hover { border-color: var(--gold); transform: translateY(-2px); }
 .orte-grid strong { display: block; font-family: Georgia, serif; font-weight: 400; font-size: 19px; color: #0a0a0a; }
 .orte-grid span { color: var(--grey); font-size: 14px; }
+
+/* Zweiter Vorher-Nachher-Regler (eigenes Seitenverhältnis) */
+.ba-compare.ba-compare-solo { aspect-ratio: 800 / 1036; max-width: 440px; margin: 40px auto 0; }
