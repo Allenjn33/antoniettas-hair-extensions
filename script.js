@@ -32,17 +32,17 @@ function loadGoogleAnalytics() {
 
 // Google Ads Conversion: zählt Klicks auf Anrufen, WhatsApp und E-Mail sowie den Start der Online-Buchung.
 // window.gtag gibt es nur nach "Akzeptieren", ohne Einwilligung wird also nichts gesendet.
-const GOOGLE_ADS_CONVERSION = `${GOOGLE_ADS_ID}/RglCCJCuoJUdELmLntdE`;
-// Gebuchter Termin (Dankeseite nach der Setmore-Buchung). Eigene Conversion-Aktion in Google Ads anlegen und hier die
-// Bezeichnung eintragen, z.B. `${GOOGLE_ADS_ID}/AbCdEfGh`. Bis dahin zählt sie wie die Kontakt-Klicks.
-const GOOGLE_ADS_CONVERSION_TERMIN = GOOGLE_ADS_CONVERSION;
+// Aktion "Kontakt" in Google Ads: Klicks auf Anrufen, WhatsApp und E-Mail
+const GOOGLE_ADS_CONVERSION = `${GOOGLE_ADS_ID}/cdbwCJOuoJUdELmLntdE`;
+// Aktion "Termin vereinbaren" in Google Ads: Start der Online-Buchung
+const GOOGLE_ADS_CONVERSION_TERMIN = `${GOOGLE_ADS_ID}/RglCCJCuoJUdELmLntdE`;
 function trackingOn() { return window.gtag && localStorage.getItem('cookieConsent') === 'accepted'; }
 document.addEventListener('click', (e) => {
   const link = e.target.closest && e.target.closest('a[href^="tel:"], a[href*="wa.me/"], a[href^="mailto:"], #bookingStart');
   if (!link || !trackingOn()) return;
   const art = link.id === 'bookingStart' ? 'termin_start' : (link.href.startsWith('tel:') ? 'anruf' : (link.href.includes('wa.me/') ? 'whatsapp' : 'email'));
   window.gtag('event', 'kontakt_klick', { kontakt_art: art }); // erscheint in Google Analytics
-  window.gtag('event', 'conversion', { send_to: GOOGLE_ADS_CONVERSION });
+  window.gtag('event', 'conversion', { send_to: art === 'termin_start' ? GOOGLE_ADS_CONVERSION_TERMIN : GOOGLE_ADS_CONVERSION });
 });
 
 function loadMap() {
