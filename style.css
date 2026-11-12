@@ -2417,3 +2417,14 @@ body.page-loaded {
 
 /* Zweiter Vorher-Nachher-Regler (eigenes Seitenverhältnis) */
 .ba-compare.ba-compare-solo { aspect-ratio: 800 / 1036; max-width: 440px; margin: 40px auto 0; }
+
+/* Warum sich der Weg lohnt */
+.weg-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; max-width: 1040px; margin: 0 auto; }
+.weg-grid .weg-card { flex: 0 1 calc((100% - 48px) / 3); }
+.weg-card { background: var(--white); padding: 32px 22px 26px; }
+.weg-card h3 { font-size: 18px; margin-bottom: 8px; }
+.weg-card p { color: var(--grey); font-size: 14px; line-height: 1.6; margin: 0; }
+.weg-card .terminort-icon { width: 46px; height: 46px; margin-bottom: 14px; }
+.weg-cta { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 36px; }
+@media (max-width: 900px) { .weg-grid .weg-card { flex-basis: calc((100% - 24px) / 2); } }
+@media (max-width: 600px) { .weg-grid { gap: 16px; } .weg-grid .weg-card { flex-basis: 100%; } .weg-card { padding: 26px 20px 22px; } .weg-cta .btn { width: 100%; text-align: center; } }
