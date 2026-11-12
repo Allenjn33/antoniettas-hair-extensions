@@ -15,7 +15,7 @@
 <meta property="og:locale" content="de_DE">
 <link rel="icon" type="image/png" href="../images/favicon.png">
 <link rel="apple-touch-icon" href="../images/favicon.png">
-<link rel="stylesheet" href="../style.css?v=60">
+<link rel="stylesheet" href="../style.css?v=61">
 <noscript><style>body{opacity:1}</style></noscript>
 <script type="application/ld+json">
 {
@@ -145,21 +145,45 @@
 
 <section class="section termin-section booking-section">
   <div class="container">
+    <p class="offer-popup-eyebrow booking-eyebrow">Studio in Saulheim · oder bei dir zu Hause</p>
     <h1>Termin buchen</h1>
-    <p class="booking-lead">Du brauchst keinen extra Beratungstermin: Beratung und Haarverlängerung sind am selben Tag möglich, im Studio oder mobil bei dir zu Hause. Die Beratung ist kostenlos. Den Preis besprechen wir direkt vor Ort, bezahlt wird im Studio.</p>
+    <p class="booking-lead">Kein extra Beratungstermin nötig: Beratung und Haarverlängerung sind am selben Tag möglich. Die Beratung ist kostenlos, den Preis besprechen wir direkt vor Ort.</p>
 
-    <div class="booking-card" id="booking">
-      <div class="booking-choose" id="bookingChoose">
-        <p class="booking-start-wrap"><button type="button" class="btn btn-dark booking-start" id="bookingStart">Termin online buchen</button></p>
-        <p class="booking-note">Mit dem Klick lädst du den Kalender von Setmore. Dabei werden Daten an Setmore übertragen, mehr dazu in der <a href="https://shop.antonietta-hairextensions.de/datenschutz">Datenschutzerklärung</a>.</p>
+    <div class="booking-grid" id="bookingGrid">
+      <div class="booking-card" id="booking">
+        <div class="booking-choose" id="bookingChoose">
+          <p class="offer-popup-eyebrow">Online buchen</p>
+          <h2 class="booking-title">Wunschtermin selbst wählen</h2>
+          <ol class="booking-steps">
+            <li><span>1</span><div><strong>Termin aussuchen</strong>Freien Tag und Uhrzeit im Kalender wählen.</div></li>
+            <li><span>2</span><div><strong>Kostenlose Beratung</strong>Wir finden gemeinsam Farbe, Länge und Menge.</div></li>
+            <li><span>3</span><div><strong>Direkt loslegen</strong>Deine Extensions noch am selben Tag.</div></li>
+          </ol>
+          <p class="booking-start-wrap"><button type="button" class="btn btn-dark booking-start" id="bookingStart">Termin online buchen</button></p>
+          <p class="booking-note">Mit dem Klick lädst du den Kalender von Setmore. Dabei werden Daten an Setmore übertragen, mehr dazu in der <a href="https://shop.antonietta-hairextensions.de/datenschutz">Datenschutzerklärung</a>.</p>
+        </div>
+        <div class="booking-frame" id="bookingFrame" hidden></div>
       </div>
-      <div class="booking-frame" id="bookingFrame" hidden></div>
+
+      <aside class="booking-direct">
+        <p class="offer-popup-eyebrow">Lieber persönlich?</p>
+        <h2 class="booking-title">Ruf an oder schreib mir</h2>
+        <p>Wir finden gemeinsam einen Termin, auch kurzfristig oder für einen Hausbesuch.</p>
+        <a class="btn booking-btn-gold" href="https://wa.me/4917662839112?text=Hallo%20Antonietta%2C%20ich%20m%C3%B6chte%20einen%20Termin." target="_blank" rel="noopener">Per WhatsApp schreiben</a>
+        <a class="btn booking-btn-line" href="tel:+4917662839112">Anrufen: 0176 62839112</a>
+        <div class="booking-address">
+          <strong>Antonietta Hair Extensions Studio</strong>
+          Nieder-Saulheimer Str. 45, 55291 Saulheim
+        </div>
+      </aside>
     </div>
 
-    <div class="booking-fast">
-      <p><strong>Schnell einen Termin?</strong> Ruf an oder schreib per WhatsApp, dann finden wir gemeinsam einen Termin.</p>
-      <p><a class="btn btn-dark" href="tel:+4917662839112">Anrufen</a> <a class="btn btn-outline" href="https://wa.me/4917662839112?text=Hallo%20Antonietta%2C%20ich%20m%C3%B6chte%20einen%20Termin." target="_blank" rel="noopener">WhatsApp</a></p>
-    </div>
+    <ul class="booking-perks">
+      <li><span class="bk-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v10H8l-4 4z"/></svg></span>Kostenlose Beratung</li>
+      <li><span class="bk-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>Alles an einem Tag</li>
+      <li><span class="bk-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M10 17V7h3a3 3 0 0 1 0 6h-3"/></svg></span>Kostenlose Parkplätze</li>
+      <li><span class="bk-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/></svg></span>Auch bei dir zu Hause</li>
+    </ul>
   </div>
 </section>
 </main>
@@ -282,9 +306,9 @@
     frame.innerHTML='';
     var back=document.createElement('button');
     back.type='button';back.className='booking-back';back.textContent='\u2190 Zurück';
-    back.addEventListener('click',function(){frame.hidden=true;frame.innerHTML='';choose.hidden=false;});
+    back.addEventListener('click',function(){frame.hidden=true;frame.innerHTML='';choose.hidden=false;var g=document.getElementById('bookingGrid');if(g)g.classList.remove('is-open');});
     frame.appendChild(back);frame.appendChild(f);
-    choose.hidden=true;frame.hidden=false;
+    choose.hidden=true;frame.hidden=false;var g=document.getElementById('bookingGrid');if(g)g.classList.add('is-open');
     frame.scrollIntoView({behavior:'smooth',block:'start'});
   });
 })();
