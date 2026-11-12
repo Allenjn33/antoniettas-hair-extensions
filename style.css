@@ -2466,3 +2466,6 @@ body.page-loaded {
 .booking-section h2.booking-title { font-size: 26px; line-height: 1.25; margin: 4px 0 18px; padding: 0; }
 .booking-section .booking-direct h2.booking-title { margin-bottom: 6px; }
 @media (max-width: 600px) { .booking-section h2.booking-title { font-size: 22px; margin-bottom: 14px; } .booking-steps { gap: 12px; margin-bottom: 20px; } }
+
+.booking-perks { grid-template-columns: repeat(5, 1fr); }
+@media (max-width: 860px) { .booking-perks { grid-template-columns: repeat(2, 1fr); } .booking-perks li:last-child { grid-column: 1 / -1; } }
