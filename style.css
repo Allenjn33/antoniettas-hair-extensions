@@ -127,7 +127,7 @@ h1, h2, h3 {
   transform: rotate(-45deg) translateY(-10px);
 }
 
-@media (max-width: 1040px) {
+@media (max-width: 1240px) {
   .menu-toggle {
     display: flex;
     flex-shrink: 0;
