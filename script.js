@@ -38,9 +38,9 @@ const GOOGLE_ADS_CONVERSION = `${GOOGLE_ADS_ID}/cdbwCJOuoJUdELmLntdE`;
 const GOOGLE_ADS_CONVERSION_TERMIN = `${GOOGLE_ADS_ID}/RglCCJCuoJUdELmLntdE`;
 function trackingOn() { return window.gtag && localStorage.getItem('cookieConsent') === 'accepted'; }
 document.addEventListener('click', (e) => {
-  const link = e.target.closest && e.target.closest('a[href^="tel:"], a[href*="wa.me/"], a[href^="mailto:"], #bookingStart');
+  const link = e.target.closest && e.target.closest('a[href^="tel:"], a[href*="wa.me/"], a[href^="mailto:"], #bookingStart, a[href*="setmore.com"]');
   if (!link || !trackingOn()) return;
-  const art = link.id === 'bookingStart' ? 'termin_start' : (link.href.startsWith('tel:') ? 'anruf' : (link.href.includes('wa.me/') ? 'whatsapp' : 'email'));
+  const art = (link.id === 'bookingStart' || link.href.includes('setmore.com')) ? 'termin_start' : (link.href.startsWith('tel:') ? 'anruf' : (link.href.includes('wa.me/') ? 'whatsapp' : 'email'));
   window.gtag('event', 'kontakt_klick', { kontakt_art: art }); // erscheint in Google Analytics
   window.gtag('event', 'conversion', { send_to: art === 'termin_start' ? GOOGLE_ADS_CONVERSION_TERMIN : GOOGLE_ADS_CONVERSION });
 });
