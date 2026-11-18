@@ -2469,3 +2469,12 @@ body.page-loaded {
 
 .booking-perks { grid-template-columns: repeat(5, 1fr); }
 @media (max-width: 860px) { .booking-perks { grid-template-columns: repeat(2, 1fr); } .booking-perks li:last-child { grid-column: 1 / -1; } }
+
+/* Kurs-Seite */
+.kurs-price { margin: 4px 0 18px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.kurs-price strong { font-family: 'Georgia', serif; font-size: 44px; line-height: 1; color: #1a1a1a; }
+.kurs-price span { color: #777; font-size: 15px; }
+.kurs-learn { max-width: 860px; margin: 28px auto 0; }
+.kurs-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 32px; }
+@media (max-width: 700px) { .kurs-steps { grid-template-columns: 1fr; } .kurs-price strong { font-size: 38px; } }
+@media (min-width: 1241px) and (max-width: 1600px) { .nav a { margin-left: 20px; letter-spacing: .6px; } .nav-sep { margin-left: 18px; } }
