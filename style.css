@@ -2478,3 +2478,5 @@ body.page-loaded {
 .kurs-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 32px; }
 @media (max-width: 700px) { .kurs-steps { grid-template-columns: 1fr; } .kurs-price strong { font-size: 38px; } }
 @media (min-width: 1241px) and (max-width: 1600px) { .nav a { margin-left: 20px; letter-spacing: .6px; } .nav-sep { margin-left: 18px; } }
+.kurs-teaser { margin-top: 24px; }
+.price-teaser .btn { white-space: nowrap; }
