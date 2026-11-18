@@ -2480,3 +2480,6 @@ body.page-loaded {
 @media (min-width: 1241px) and (max-width: 1600px) { .nav a { margin-left: 20px; letter-spacing: .6px; } .nav-sep { margin-left: 18px; } }
 .kurs-teaser { margin-top: 24px; }
 .price-teaser .btn { white-space: nowrap; }
+.hero-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin: 14px auto 0; font-size: 13px; letter-spacing: .04em; color: rgba(255,255,255,.88); }
+.hero-trust span + span::before { content: "·"; margin-right: 18px; color: var(--gold); }
+@media (max-width: 480px) { .hero-trust { font-size: 12px; gap: 4px 12px; } .hero-trust span + span::before { margin-right: 12px; } }
